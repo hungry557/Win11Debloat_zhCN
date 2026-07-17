@@ -36,14 +36,14 @@ function Get-TelemetryScheduledTasks {
     Disable-TelemetryScheduledTasks
 #>
 function Disable-TelemetryScheduledTasks {
-    Write-Host "> Disabling telemetry scheduled tasks..."
+    Write-Host "> 正在禁用遥测计划任务..."
     $tasks = Get-TelemetryScheduledTasks
 
     foreach ($task in $tasks) {
         if ($script:CancelRequested) { return }
 
         if ($script:Params.ContainsKey("WhatIf")) {
-            Write-Host "[WhatIf] Disable Scheduled Task: $($task.Path)$($task.Name)" -ForegroundColor Cyan
+            Write-Host "[WhatIf] 禁用计划任务：$($task.Path)$($task.Name)" -ForegroundColor Cyan
             continue
         }
 
@@ -67,10 +67,10 @@ function Disable-TelemetryScheduledTasks {
         } -ArgumentList @($task.Path, $task.Name)
 
         switch ($result.Status) {
-            'Disabled'        { Write-Host "Disabled Scheduled Task: $($task.Path)$($task.Name)" }
-            'AlreadyDisabled' { Write-Host "Scheduled Task $($task.Path)$($task.Name) is already disabled" -ForegroundColor DarkGray }
-            'NotFound'        { Write-Host "Scheduled Task $($task.Path)$($task.Name) not found" -ForegroundColor DarkGray }
-            'Error'           { Write-Host "Failed to disable Scheduled Task: $($task.Path)$($task.Name) - $($result.Error)" -ForegroundColor Yellow }
+            'Disabled'        { Write-Host "已禁用计划任务：$($task.Path)$($task.Name)" }
+            'AlreadyDisabled' { Write-Host "计划任务 $($task.Path)$($task.Name) 已处于禁用状态" -ForegroundColor DarkGray }
+            'NotFound'        { Write-Host "未找到计划任务 $($task.Path)$($task.Name)" -ForegroundColor DarkGray }
+            'Error'           { Write-Host "禁用计划任务失败：$($task.Path)$($task.Name) - $($result.Error)" -ForegroundColor Yellow }
         }
     }
 
@@ -90,14 +90,14 @@ function Disable-TelemetryScheduledTasks {
     Enable-TelemetryScheduledTasks
 #>
 function Enable-TelemetryScheduledTasks {
-    Write-Host "> Enabling telemetry scheduled tasks..."
+    Write-Host "> 正在启用遥测计划任务..."
     $tasks = Get-TelemetryScheduledTasks
 
     foreach ($task in $tasks) {
         if ($script:CancelRequested) { return }
 
         if ($script:Params.ContainsKey("WhatIf")) {
-            Write-Host "[WhatIf] Enable Scheduled Task: $($task.Path)$($task.Name)" -ForegroundColor Cyan
+            Write-Host "[WhatIf] 启用计划任务：$($task.Path)$($task.Name)" -ForegroundColor Cyan
             continue
         }
 
@@ -121,10 +121,10 @@ function Enable-TelemetryScheduledTasks {
         } -ArgumentList @($task.Path, $task.Name)
 
         switch ($result.Status) {
-            'Enabled'        { Write-Host "Enabled Scheduled Task: $($task.Path)$($task.Name)" }
-            'AlreadyEnabled' { Write-Host "Scheduled Task $($task.Path)$($task.Name) is already enabled." -ForegroundColor DarkGray }
-            'NotFound'       { Write-Host "Scheduled Task $($task.Path)$($task.Name) not found." -ForegroundColor DarkGray }
-            'Error'          { Write-Host "Failed to enable Scheduled Task: $($task.Path)$($task.Name) - $($result.Error)" -ForegroundColor Yellow }
+            'Enabled'        { Write-Host "已启用计划任务：$($task.Path)$($task.Name)" }
+            'AlreadyEnabled' { Write-Host "计划任务 $($task.Path)$($task.Name) 已处于启用状态。" -ForegroundColor DarkGray }
+            'NotFound'       { Write-Host "未找到计划任务 $($task.Path)$($task.Name)。" -ForegroundColor DarkGray }
+            'Error'          { Write-Host "启用计划任务失败：$($task.Path)$($task.Name) - $($result.Error)" -ForegroundColor Yellow }
         }
     }
 

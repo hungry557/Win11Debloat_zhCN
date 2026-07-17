@@ -1,7 +1,7 @@
 # Saves the current settings, excluding control parameters, to 'LastUsedSettings.json' file
 function SaveSettings {
     if ($script:Params.ContainsKey("WhatIf")) {
-        Write-Host "[WhatIf] Save settings to LastUsedSettings.json" -ForegroundColor Cyan
+        Write-Host "[WhatIf] 保存设置到 LastUsedSettings.json" -ForegroundColor Cyan
         return
     }
 
@@ -23,6 +23,6 @@ function SaveSettings {
 
     if (-not (SaveToFile -Config $settings -FilePath $script:SavedSettingsFilePath)) {
         Write-Output ""
-        Write-Host "Error: Failed to save settings to LastUsedSettings.json file" -ForegroundColor Red
+        Write-Host "错误：无法将设置保存到 LastUsedSettings.json 文件" -ForegroundColor Red
     }
 }

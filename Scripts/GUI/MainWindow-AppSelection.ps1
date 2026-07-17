@@ -158,7 +158,7 @@ function Update-AppSelectionStatus {
             $selectedCount++
         }
     }
-    $AppSelectionStatus.Text = "$selectedCount app(s) selected for removal"
+    $AppSelectionStatus.Text = "已选择 $selectedCount 个应用进行移除"
 
     if ($AppRemovalScopeCombo -and $AppRemovalScopeSection -and $AppRemovalScopeDescription) {
         if ($selectedCount -gt 0) {
@@ -183,14 +183,14 @@ function Update-AppRemovalScopeDescription {
     $selectedItem = $AppRemovalScopeCombo.SelectedItem
     if ($selectedItem) {
         switch ($selectedItem.Content) {
-            "All users" {
-                $AppRemovalScopeDescription.Text = "Apps will be removed for all users and from the Windows image to prevent reinstallation for new users."
+            "所有用户" {
+                $AppRemovalScopeDescription.Text = "应用将为所有用户移除，并从 Windows 映像中移除，以防止新用户重新安装。"
             }
-            "Current user only" {
-                $AppRemovalScopeDescription.Text = "Apps will only be removed for the current user."
+            "仅当前用户" {
+                $AppRemovalScopeDescription.Text = "应用将仅为当前用户移除。"
             }
-            "Target user only" {
-                $AppRemovalScopeDescription.Text = "Apps will only be removed for the specified target user."
+            "仅目标用户" {
+                $AppRemovalScopeDescription.Text = "应用将仅为指定的目标用户移除。"
             }
         }
     }
@@ -382,9 +382,9 @@ function Load-AppsWithList {
         $dot.Style = $Window.Resources['AppRecommendationDotStyle']
         $dot.Fill = switch ($app.Recommendation) { 'safe' { $brushSafe } 'unsafe' { $brushUnsafe } default { $brushDefault } }
         $dot.ToolTip = switch ($app.Recommendation) {
-            'safe'   { '[Recommended] Safe to remove for most users' }
-            'unsafe' { '[Not Recommended] Only remove if you know what you are doing' }
-            default  { "[Optional] Can be safely removed if you don't need this app" }
+            'safe'   { '[推荐] 对大多数用户可安全移除' }
+            'unsafe' { '[不推荐] 仅在了解用途时移除' }
+            default  { "[可选] 如不需要此应用可安全移除" }
         }
         [System.Windows.Controls.Grid]::SetColumn($dot, 0)
 
@@ -518,12 +518,12 @@ function Load-AppsIntoMainUI {
                 $listOfApps = $null
 
                 if ($OnlyInstalledAppsBox.IsChecked -and ($script:WingetInstalled -eq $true)) {
-                    Write-Host "Retrieving installed apps via winget..."
+                    Write-Host "正在通过 winget 获取已安装应用..."
                     $listOfApps = GetInstalledAppsViaWinget -TimeOut 20 -NonBlocking
 
                     if ($null -eq $listOfApps) {
-                        Write-Warning "WinGet returned no data (command timed out or failed)"
-                        Show-MessageBox -Message 'Unable to load list of installed apps via WinGet.' -Title 'Error' -Button 'OK' -Icon 'Error' | Out-Null
+                        Write-Warning "WinGet 未返回数据（命令超时或失败）"
+                        Show-MessageBox -Message '无法通过 WinGet 加载已安装应用列表。' -Title '错误' -Button 'OK' -Icon 'Error' | Out-Null
                         $OnlyInstalledAppsBox.IsChecked = $false
                     }
                 }
@@ -532,7 +532,7 @@ function Load-AppsIntoMainUI {
                     -LoadingAppsIndicator $LoadingAppsIndicator -ImportConfigBtn $ImportConfigBtn -ListOfApps $listOfApps
             }
             catch {
-                Write-Warning "Failed to load apps list: $($_.Exception.Message)"
+                Write-Warning "加载应用列表失败：$($_.Exception.Message)"
                 $LoadingAppsIndicator.Visibility = 'Collapsed'
                 $OnlyInstalledAppsBox.IsHitTestVisible = $true
                 $Window.FindName('DeploymentApplyBtn').IsEnabled = $true

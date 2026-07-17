@@ -1,12 +1,12 @@
 # Shows the CLI last used settings from LastUsedSettings.json file, displays pending changes and prompts the user to apply them.
 function ShowCLILastUsedSettings {
-    PrintHeader 'Custom Mode'
+    PrintHeader '自定义模式'
 
     try {
         LoadSettings -filePath $script:SavedSettingsFilePath -expectedVersion "1.0"
     }
     catch {
-        Write-Error "Failed to load settings from LastUsedSettings.json file: $_"
+        Write-Error "无法从 LastUsedSettings.json 文件加载设置：$_"
         AwaitKeyToExit
     }
 
@@ -16,5 +16,5 @@ function ShowCLILastUsedSettings {
     }
 
     PrintPendingChanges
-    PrintHeader 'Custom Mode'
+    PrintHeader '自定义模式'
 }

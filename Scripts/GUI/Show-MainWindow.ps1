@@ -43,8 +43,8 @@
     # ---- Handle unhandled exceptions on the dispatcher thread ----
     [System.Windows.Threading.Dispatcher]::CurrentDispatcher.Add_UnhandledException({
         param($sender, $e)
-        Write-Warning "Unhandled exception in GUI: $($e.Exception.Message)"
-        Write-Warning "Stack trace: $($e.Exception.StackTrace)"
+        Write-Warning "GUI 中发生未处理的异常：$($e.Exception.Message)"
+        Write-Warning "堆栈跟踪：$($e.Exception.StackTrace)"
         $e.Handled = $true
     })
 
@@ -93,7 +93,7 @@
             Start-Process "explorer.exe" -ArgumentList $logsFolder
         }
         else {
-            Show-MessageBox -Message "No logs folder found at: $logsFolder" -Title "Logs" -Button 'OK' -Icon 'Information'
+            Show-MessageBox -Message "未找到日志文件夹：$logsFolder" -Title "日志" -Button 'OK' -Icon 'Information'
         }
     })
 
@@ -165,8 +165,8 @@
             Export-Configuration -Owner $window -UsesDarkMode $usesDarkMode -AppsPanel $appsPanel -UiControlMappings $script:UiControlMappings -UserSelectionCombo $userSelectionCombo -OtherUsernameTextBox $otherUsernameTextBox
         }
         catch {
-            Write-Warning "Export configuration failed: $($_.Exception.Message)"
-            Show-MessageBox -Owner $window -Message "Unable to open export configuration dialog: $($_.Exception.Message)" -Title 'Export Configuration Failed' -Button 'OK' -Icon 'Error' | Out-Null
+            Write-Warning "导出配置失败：$($_.Exception.Message)"
+            Show-MessageBox -Owner $window -Message "无法打开导出配置对话框：$($_.Exception.Message)" -Title '导出配置失败' -Button 'OK' -Icon 'Error' | Out-Null
         }
     })
 
@@ -176,13 +176,13 @@
                 $tabControl.SelectedIndex = 3
                 Update-NavigationButtons -Window $window -TabControl $tabControl
                 $window.Dispatcher.BeginInvoke([System.Windows.Threading.DispatcherPriority]::Loaded, [action]{
-                    Show-Bubble -TargetControl $reviewChangesBtn -Message 'View the selected changes here'
+                    Show-Bubble -TargetControl $reviewChangesBtn -Message '在此查看所选更改'
                 }) | Out-Null
             }
         }
         catch {
-            Write-Warning "Import configuration failed: $($_.Exception.Message)"
-            Show-MessageBox -Owner $window -Message "Unable to open import configuration dialog: $($_.Exception.Message)" -Title 'Import Configuration Failed' -Button 'OK' -Icon 'Error' | Out-Null
+            Write-Warning "导入配置失败：$($_.Exception.Message)"
+            Show-MessageBox -Owner $window -Message "无法打开导入配置对话框：$($_.Exception.Message)" -Title '导入配置失败' -Button 'OK' -Icon 'Error' | Out-Null
         }
     })
 
@@ -201,8 +201,8 @@
                 }
             }
             catch {
-                Write-Warning "Restore backup action failed: $($_.Exception.Message)"
-                Show-MessageBox -Owner $window -Message "Unable to open restore backup dialog: $($_.Exception.Message)" -Title 'Restore Backup Failed' -Button 'OK' -Icon 'Error' | Out-Null
+                Write-Warning "还原备份操作失败：$($_.Exception.Message)"
+                Show-MessageBox -Owner $window -Message "无法打开还原备份对话框：$($_.Exception.Message)" -Title '还原备份失败' -Button 'OK' -Icon 'Error' | Out-Null
             }
         })
     }
@@ -228,7 +228,7 @@
         $checkbox.Content = $preset.Name
         $checkbox.IsThreeState = $true
         $checkbox.Style = $window.Resources['PresetCheckBoxStyle']
-        $checkbox.ToolTip = "Select $($preset.Name)"
+        $checkbox.ToolTip = "选择 $($preset.Name)"
         $checkbox.SetValue([System.Windows.Automation.AutomationProperties]::NameProperty, $preset.Name)
         Add-TriStateClickBehavior -CheckBox $checkbox
         Add-Member -InputObject $checkbox -MemberType NoteProperty -Name 'PresetAppIds' -Value $preset.AppIds
@@ -498,11 +498,11 @@
         if ($e.Key -eq [System.Windows.Input.Key]::F -and
             ([System.Windows.Input.Keyboard]::Modifiers -band [System.Windows.Input.ModifierKeys]::Control)) {
             $currentTab = $tabControl.SelectedItem
-            if ($currentTab.Header -eq "App Removal" -and $appSearchBox) {
+            if ($currentTab.Header -eq "应用移除" -and $appSearchBox) {
                 $appSearchBox.Focus()
                 $e.Handled = $true
             }
-            elseif ($currentTab.Header -eq "Tweaks" -and $tweakSearchBox) {
+            elseif ($currentTab.Header -eq "系统调整" -and $tweakSearchBox) {
                 $tweakSearchBox.Focus()
                 $e.Handled = $true
             }
@@ -594,9 +594,9 @@
                 $usernameValidationMessage.Text
             }
             else {
-                "Please enter a valid username."
+                "请输入有效的用户名。"
             }
-            Show-MessageBox -Message $validationMessage -Title "Invalid Username" -Button 'OK' -Icon 'Warning' | Out-Null
+            Show-MessageBox -Message $validationMessage -Title "无效用户名" -Button 'OK' -Icon 'Warning' | Out-Null
             return $false
         }
         return $true
@@ -633,7 +633,7 @@
         Invoke-NavigationUpdate
 
         $window.Dispatcher.BeginInvoke([System.Windows.Threading.DispatcherPriority]::Loaded, [action]{
-            Show-Bubble -TargetControl $reviewChangesBtn -Message 'View the selected changes here'
+            Show-Bubble -TargetControl $reviewChangesBtn -Message '在此查看所选更改'
         }) | Out-Null
     })
 
@@ -671,9 +671,9 @@
             $selectedScopeItem = $appRemovalScopeCombo.SelectedItem
             if ($selectedScopeItem) {
                 switch ($selectedScopeItem.Content) {
-                    "All users" { AddParameter 'AppRemovalTarget' 'AllUsers' }
-                    "Current user only" { AddParameter 'AppRemovalTarget' 'CurrentUser' }
-                    "Target user only" { AddParameter 'AppRemovalTarget' ($otherUsernameTextBox.Text.Trim()) }
+                    "所有用户" { AddParameter 'AppRemovalTarget' 'AllUsers' }
+                    "仅当前用户" { AddParameter 'AppRemovalTarget' 'CurrentUser' }
+                    "仅目标用户" { AddParameter 'AppRemovalTarget' ($otherUsernameTextBox.Text.Trim()) }
                 }
             }
         }
@@ -689,7 +689,7 @@
         }
 
         if (-not $hasAppSelection -and $selectedForwardFeatureIds.Count -eq 0 -and $script:UndoParams.Count -eq 0) {
-            Show-MessageBox -Message 'No changes have been selected, please select at least one option to proceed.' -Title 'No Changes Selected' -Button 'OK' -Icon 'Information'
+            Show-MessageBox -Message '未选择任何更改，请至少选择一项后继续。' -Title '未选择更改' -Button 'OK' -Icon 'Information'
             return
         }
 
@@ -699,13 +699,13 @@
         }
 
         switch ($userSelectionCombo.SelectedIndex) {
-            0 { Write-Host "Selected user mode: current user ($(GetUserName))" }
+            0 { Write-Host "已选择用户模式：当前用户 ($(GetUserName))" }
             1 {
-                Write-Host "Selected user mode: $($otherUsernameTextBox.Text.Trim())"
+                Write-Host "已选择用户模式：$($otherUsernameTextBox.Text.Trim())"
                 AddParameter User ($otherUsernameTextBox.Text.Trim())
             }
             2 {
-                Write-Host "Selected user mode: default user profile (Sysprep)"
+                Write-Host "已选择用户模式：默认用户配置文件（Sysprep）"
                 AddParameter Sysprep
             }
         }
@@ -756,7 +756,7 @@
             if ($userSelectionCombo -and $userSelectionCombo.Items.Count -gt 0) {
                 $currentUserItem = $userSelectionCombo.Items[0]
                 if ($currentUserItem -is [System.Windows.Controls.ComboBoxItem]) {
-                    $currentUserItem.Content = "Current User ($(GetUserName))"
+                    $currentUserItem.Content = "当前用户 ($(GetUserName))"
                 }
             }
 
@@ -796,7 +796,7 @@
         catch {
             Write-Warning "Error during GUI initialization: $($_.Exception.Message)"
             Write-Warning "Stack trace: $($_.Exception.StackTrace)"
-            Show-MessageBox -Message "An error occurred during initialization: $($_.Exception.Message)" -Title "Initialization Error" -Button 'OK' -Icon 'Error' | Out-Null
+            Show-MessageBox -Message "初始化期间发生错误：$($_.Exception.Message)" -Title "初始化错误" -Button 'OK' -Icon 'Error' | Out-Null
         }
     })
 
@@ -872,7 +872,7 @@
         $script:PreloadedAppData = LoadAppsDetailsFromJson -OnlyInstalled:$false -InstalledList $null -InitialCheckedFromJson:$false
     }
     catch {
-        Write-Warning "Failed to preload apps list: $_"
+        Write-Warning "预加载应用列表失败：$_"
     }
 
     # ---- Show window ----
@@ -886,7 +886,7 @@
     # If WhatIf mode is enabled, notify the user that no changes will be made
     if ($script:Params.ContainsKey("WhatIf")) {
         $window.Dispatcher.BeginInvoke([System.Windows.Threading.DispatcherPriority]::Loaded, [action]{
-            Show-MessageBox -Message "WhatIf mode is enabled. The script will not make any changes to your system in this mode.`n`nYou can observe the actions that would be taken by the script in the console output." -Title 'WhatIf Mode' -Button 'OK' -Icon 'Information' -Owner $window
+            Show-MessageBox -Message "已启用 WhatIf 模式。在此模式下脚本不会对系统进行任何更改。`n`n您可以在控制台输出中观察脚本将执行的操作。" -Title 'WhatIf 模式' -Button 'OK' -Icon 'Information' -Owner $window
         }) | Out-Null
     }
 

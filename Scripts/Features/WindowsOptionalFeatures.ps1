@@ -5,7 +5,7 @@ function EnableWindowsFeature {
     )
 
     if ($script:Params.ContainsKey("WhatIf")) {
-        Write-Host "[WhatIf] Enable Windows feature: $FeatureName" -ForegroundColor Cyan
+        Write-Host "[WhatIf] 启用 Windows 功能：$FeatureName" -ForegroundColor Cyan
         Write-Host ""
         return
     }
@@ -28,7 +28,7 @@ function DisableWindowsFeature {
     )
 
     if ($script:Params.ContainsKey("WhatIf")) {
-        Write-Host "[WhatIf] Disable Windows feature: $FeatureName" -ForegroundColor Cyan
+        Write-Host "[WhatIf] 禁用 Windows 功能：$FeatureName" -ForegroundColor Cyan
         Write-Host ""
         return
     }

@@ -26,7 +26,7 @@ function RemoveApps {
 
     if ($script:Params.ContainsKey("WhatIf")) {
         foreach ($app in $appslist) {
-            Write-Host "[WhatIf] Remove App Package: $app" -ForegroundColor Cyan
+            Write-Host "[WhatIf] 移除应用包：$app" -ForegroundColor Cyan
         }
 
         Write-Host ""
@@ -49,7 +49,7 @@ function RemoveApps {
             & $script:ApplySubStepCallback "Removing apps ($appIndex/$appCount)" $appIndex $appCount
         }
 
-        Write-Host "Removing $app"
+        Write-Host "正在移除 $app"
 
         if ((Get-AppRemovalMethod $app) -eq 'WinGet') {
             Remove-WinGetApp -app $app
@@ -76,14 +76,14 @@ function RemoveApps {
             }
 
             if ($edgeIds -contains $app) {
-                Write-Host "Unable to uninstall Microsoft Edge via WinGet" -ForegroundColor Red
+                Write-Host "无法通过 WinGet 卸载 Microsoft Edge" -ForegroundColor Red
                 if (-not $edgeForceRemoveRequested) {
                     Request-EdgeForceRemove
                     $edgeForceRemoveRequested = $true
                 }
             }
             else {
-                Write-Host "Unable to uninstall $app via WinGet" -ForegroundColor Red
+                Write-Host "无法通过 WinGet 卸载 $app" -ForegroundColor Red
             }
         }
     }
@@ -106,7 +106,7 @@ function Remove-WinGetApp {
     param([string]$app)
 
     if (-not $script:WingetInstalled) {
-        Write-Host "ERROR: WinGet is either not installed or is outdated, $app could not be removed" -ForegroundColor Red
+        Write-Host "错误：WinGet 未安装或版本过旧，无法移除 $app" -ForegroundColor Red
         return
     }
 
@@ -116,11 +116,11 @@ function Remove-WinGetApp {
     } -ArgumentList $app
 
     if ($script:Params.ContainsKey("User")) {
-        Write-Host "Adding scheduled task to uninstall $app for user $(GetUserName)..."
+        Write-Host "正在添加计划任务以为用户 $(GetUserName) 卸载 $app..."
         Set-RunOnceWingetTask -appId $app
     }
     elseif ($script:Params.ContainsKey("Sysprep")) {
-        Write-Host "Adding scheduled task to uninstall $app for new users..."
+        Write-Host "正在添加计划任务以为新用户卸载 $app..."
         Set-RunOnceWingetTask -appId $app
     }
 }
@@ -211,7 +211,7 @@ function Test-AppStillInstalled {
         }
     }
     else {
-        Write-Warning "Unable to verify whether '$appId' is still installed (WinGet is unavailable)"
+        Write-Warning "无法验证 '$appId' 是否仍已安装（WinGet 不可用）"
     }
 
     return $false
@@ -251,7 +251,7 @@ function Get-AppRemovalMethod {
             }
         }
         catch {
-            Write-Warning "Failed to load app removal methods from '$script:AppsListFilePath'. Defaulting unknown apps to Appx. Error: $_"
+            Write-Warning "无法从 '$script:AppsListFilePath' 加载应用移除方法。未知应用将默认使用 Appx。错误：$_"
         }
     }
 
@@ -273,13 +273,13 @@ function Get-AppRemovalMethod {
 #>
 function Request-EdgeForceRemove {
     if ($script:GuiWindow) {
-        $result = Show-MessageBox -Message 'Unable to uninstall Microsoft Edge via WinGet. Would you like to forcefully uninstall it? NOT RECOMMENDED!' -Title 'Force Uninstall Microsoft Edge?' -Button 'YesNo' -Icon 'Warning'
+        $result = Show-MessageBox -Message '无法通过 WinGet 卸载 Microsoft Edge。是否强制卸载？不推荐！' -Title '强制卸载 Microsoft Edge？' -Button 'YesNo' -Icon 'Warning'
         if ($result -eq 'Yes') {
             Write-Host ""
             ForceRemoveEdge
         }
     }
-    elseif ($(Read-Host -Prompt "Would you like to forcefully uninstall Microsoft Edge? NOT RECOMMENDED! (y/n)") -eq 'y') {
+    elseif ($(Read-Host -Prompt "是否强制卸载 Microsoft Edge？不推荐！(y/n)") -eq 'y') {
         Write-Host ""
         ForceRemoveEdge
     }
@@ -335,6 +335,6 @@ function Set-RunOnceWingetTask {
         } -ArgumentObject $operation
     }
     catch {
-        Write-Host "Failed to schedule uninstall task for $($appId): $_" -ForegroundColor Red
+        Write-Host "为 $($appId) 安排卸载任务失败：$_" -ForegroundColor Red
     }
 }

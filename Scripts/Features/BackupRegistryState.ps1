@@ -41,7 +41,7 @@ function New-RegistrySettingsBackup {
         throw "Failed to save registry backup to '$backupFilePath'"
     }
 
-    Write-Host "Backup successfully created: $backupFilePath"
+    Write-Host "备份创建成功：$backupFilePath"
     Write-Host ""
 
     return $backupFilePath

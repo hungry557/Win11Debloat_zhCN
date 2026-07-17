@@ -16,9 +16,9 @@ function CheckModernStandbySupport {
         }
     }
     catch {
-        Write-Host "Error: Unable to check for S0 Modern Standby support, powercfg command failed" -ForegroundColor Red
+        Write-Host "错误：无法检查 S0 Modern Standby 支持，powercfg 命令失败" -ForegroundColor Red
         Write-Host ""
-        Write-Host "Press any key to continue..."
+        Write-Host "按任意键继续..."
         $null = [System.Console]::ReadKey()
         return $true
     }

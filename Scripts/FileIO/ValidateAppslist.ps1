@@ -13,7 +13,7 @@ function ValidateAppslist {
         $appString = $app.Trim('*')
 
         if ($supportedAppsList -notcontains $appString) {
-            Write-Host "Removal of app '$appString' is not supported and will be skipped" -ForegroundColor Yellow
+            Write-Host "不支持移除应用 '$appString'，将跳过" -ForegroundColor Yellow
             continue
         }
 

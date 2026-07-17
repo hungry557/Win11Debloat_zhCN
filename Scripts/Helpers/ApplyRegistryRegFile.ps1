@@ -154,11 +154,11 @@ function Write-RegistryOperationAccessDeniedWarning {
     if ($operationType -eq 'SetValue' -or $operationType -eq 'DeleteValue') {
         $valueName = Get-NormalizedRegistryValueName -ValueName $Operation.ValueName
         $displayValueName = if ([string]::IsNullOrEmpty($valueName)) { '(Default)' } else { $valueName }
-        Write-Warning "Skipping operation '$operationType' on key '$keyPath' value '$displayValueName' due to access restrictions: $ExceptionMessage"
+        Write-Warning "由于访问限制，跳过对键 '$keyPath' 值 '$displayValueName' 的 '$operationType' 操作：$ExceptionMessage"
         return
     }
 
-    Write-Warning "Skipping operation '$operationType' on key '$keyPath' due to access restrictions: $ExceptionMessage"
+    Write-Warning "由于访问限制，跳过对键 '$keyPath' 的 '$operationType' 操作：$ExceptionMessage"
 }
 
 function Invoke-RegistryOperation {
@@ -204,7 +204,7 @@ function Invoke-RegistryOperationsFromRegFile {
     $totalOperations = $operations.Count
 
     if ($script:Params.ContainsKey("WhatIf")) {
-        Write-Host "[WhatIf] Apply $totalOperations registry changes from '$RegFilePath'" -ForegroundColor Cyan
+        Write-Host "[WhatIf] 从 '$RegFilePath' 应用 $totalOperations 项注册表更改" -ForegroundColor Cyan
         return
     }
 
@@ -223,6 +223,6 @@ function Invoke-RegistryOperationsFromRegFile {
     }
 
     if ($accessDeniedCount -gt 0) {
-        Write-Warning "Registry fallback import completed with $accessDeniedCount access-restricted operation(s) skipped in '$RegFilePath'."
+        Write-Warning "注册表回退导入已完成，'$RegFilePath' 中有 $accessDeniedCount 项因访问限制被跳过的操作。"
     }
 }

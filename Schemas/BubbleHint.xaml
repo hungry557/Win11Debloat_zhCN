@@ -23,7 +23,7 @@
                     Color="Black"/>
         </Border.Effect>
         <TextBlock Name="BubbleText"
-               Text="View the selected changes here"
+               Text="在此查看已选更改"
                TextWrapping="Wrap"
                MaxWidth="260"
                Foreground="{DynamicResource AppFgColor}"/>

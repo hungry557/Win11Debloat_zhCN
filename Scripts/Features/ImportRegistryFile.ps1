@@ -13,7 +13,7 @@ function ImportRegistryFile {
     if (-not (Test-Path $regFilePath)) {
         $errorMessage = "Unable to find registry file: $path ($regFilePath)"
         $script:RegistryImportFailures++
-        Write-Host "Error: $errorMessage" -ForegroundColor Red
+        Write-Host "错误：$errorMessage" -ForegroundColor Red
         Write-Host ""
         throw $errorMessage
     }
@@ -34,7 +34,7 @@ function ImportRegistryFile {
 
         if ($usePowerShellFallbackOnly) {
             Invoke-RegistryOperationsFromRegFile -RegFilePath $targetRegFilePath
-            Write-Host "The operation completed successfully via PowerShell registry writer."
+            Write-Host "操作已通过 PowerShell 注册表写入器成功完成。"
             Write-Host ""
             return
         }
@@ -88,9 +88,9 @@ function ImportRegistryFile {
 
         if (-not $hasSuccess) {
             $details = if ($regResult.Error) { $regResult.Error } else { "Exit code: $($regResult.ExitCode)" }
-            Write-Warning "reg import failed for '$path'. Falling back to PowerShell registry writer. Details: $details"
+            Write-Warning "reg import 对 '$path' 失败。回退到 PowerShell 注册表写入器。详情：$details"
             Invoke-RegistryOperationsFromRegFile -RegFilePath $targetRegFilePath
-            Write-Host "The operation completed successfully via PowerShell registry writer."
+            Write-Host "操作已通过 PowerShell 注册表写入器成功完成。"
         }
 
         Write-Host ""

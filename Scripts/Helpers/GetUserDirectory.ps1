@@ -45,10 +45,10 @@ function GetUserDirectory {
         }
     }
     catch {
-        Write-Error "Something went wrong when trying to find the user directory path for user $userName. Please ensure the user exists on this system"
+        Write-Error "查找用户 $userName 的目录路径时出错。请确保该用户存在于本系统"
         AwaitKeyToExit
     }
 
-    Write-Error "Unable to find user directory path for user $userName"
+    Write-Error "找不到用户 $userName 的目录路径"
     AwaitKeyToExit
 }

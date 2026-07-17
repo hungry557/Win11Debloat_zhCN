@@ -145,7 +145,7 @@ function Normalize-RegistryBackup {
     }
 
     if ($errors.Count -gt 0) {
-        Write-Error "Backup validation failed: $($errors -join ' ')"
+        Write-Error "备份验证失败：$($errors -join ' ')"
         if ($errors.Count -eq 1) {
             throw ("Validation failed: $($errors[0])")
         }
@@ -193,29 +193,29 @@ function Restore-RegistryBackupState {
     $friendlyTarget = GetFriendlyRegistryBackupTarget -Target ([string]$Backup.Target)
 
     if ($script:Params.ContainsKey("WhatIf")) {
-        Write-Host "[WhatIf] Restore registry backup for $friendlyTarget" -ForegroundColor Cyan
+        Write-Host "[WhatIf] 为 $friendlyTarget 还原注册表备份" -ForegroundColor Cyan
         return [PSCustomObject]@{ Result = $true }
     }
 
     $restoreAction = {
         param($normalizedBackup)
 
-        Write-Host "Applying registry restore from $(@($normalizedBackup.RegistryKeys).Count) root snapshot(s)."
+        Write-Host "正在从 $(@($normalizedBackup.RegistryKeys).Count) 个根快照应用注册表还原。"
         foreach ($rootSnapshot in @($normalizedBackup.RegistryKeys)) {
             Restore-RegistryKeySnapshot -Snapshot $rootSnapshot
         }
     }
 
-    Write-Host "Starting restore for $friendlyTarget."
+    Write-Host "正在为 $friendlyTarget 开始还原。"
 
     if ($Backup.Target -eq 'DefaultUserProfile' -or $Backup.Target -like 'User:*') {
-        Write-Host "Restore requires loading target user hive."
+        Write-Host "还原需要加载目标用户配置单元。"
         Invoke-WithLoadedRestoreHive -Target $Backup.Target -ScriptBlock $restoreAction -ArgumentObject $Backup
-        Write-Host "Restore completed for $friendlyTarget."
+        Write-Host "已为 $friendlyTarget 完成还原。"
         return [PSCustomObject]@{ Result = $true }
     }
 
     & $restoreAction $Backup
-    Write-Host "Restore completed for $friendlyTarget."
+        Write-Host "已为 $friendlyTarget 完成还原。"
     return [PSCustomObject]@{ Result = $true }
 }

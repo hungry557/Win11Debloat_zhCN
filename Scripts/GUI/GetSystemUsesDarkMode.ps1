@@ -4,7 +4,7 @@ function GetSystemUsesDarkMode {
         $personalizeKey = Get-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'
 
         if ($null -eq $personalizeKey) {
-            Write-Host "WARNING: Unable to retrieve personalization settings." -ForegroundColor Yellow
+            Write-Host "警告：无法获取个性化设置。" -ForegroundColor Yellow
             return $false
         }
 

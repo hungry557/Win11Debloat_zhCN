@@ -1,7 +1,7 @@
 # Forcefully removes Microsoft Edge using its uninstaller
 # Credit: Based on work from loadstring1 & ave9858
 function ForceRemoveEdge {
-    Write-Host "> Forcefully uninstalling Microsoft Edge..."
+    Write-Host "> 正在强制卸载 Microsoft Edge..."
 
     $regView = [Microsoft.Win32.RegistryView]::Registry32
     $hklm = [Microsoft.Win32.RegistryKey]::OpenBaseKey([Microsoft.Win32.RegistryHive]::LocalMachine, $regView)
@@ -15,14 +15,14 @@ function ForceRemoveEdge {
     # Remove edge
     $uninstallRegKey = $hklm.OpenSubKey('SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft Edge')
     if ($null -ne $uninstallRegKey) {
-        Write-Host "Running uninstaller..."
+        Write-Host "正在运行卸载程序..."
         $uninstallString = $uninstallRegKey.GetValue('UninstallString') + ' --force-uninstall'
         Invoke-NonBlocking -ScriptBlock {
             param($cmd)
             Start-Process cmd.exe "/c $cmd" -WindowStyle Hidden -Wait
         } -ArgumentList $uninstallString
 
-        Write-Host "Removing leftover files..."
+        Write-Host "正在移除残留文件..."
 
         $edgePaths = @(
             "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Edge.lnk",
@@ -37,11 +37,11 @@ function ForceRemoveEdge {
         foreach ($path in $edgePaths) {
             if (Test-Path -Path $path) {
                 Remove-Item -Path $path -Force -Recurse -ErrorAction SilentlyContinue
-                Write-Host "  Removed $path" -ForegroundColor DarkGray
+                Write-Host "  已移除 $path" -ForegroundColor DarkGray
             }
         }
 
-        Write-Host "Cleaning up registry..."
+        Write-Host "正在清理注册表..."
 
         # Remove MS Edge from autostart
         reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run" /v "MicrosoftEdgeAutoLaunch_A9F6DCE4ABADF4F51CF45CD7129E3C6C" /f *>$null
@@ -49,9 +49,9 @@ function ForceRemoveEdge {
         reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run" /v "MicrosoftEdgeAutoLaunch_A9F6DCE4ABADF4F51CF45CD7129E3C6C" /f *>$null
         reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run" /v "Microsoft Edge Update" /f *>$null
 
-        Write-Host "Microsoft Edge was uninstalled"
+        Write-Host "Microsoft Edge 已卸载"
     }
     else {
-        Write-Host "Unable to forcefully uninstall Microsoft Edge, uninstaller could not be found" -ForegroundColor Red
+        Write-Host "无法强制卸载 Microsoft Edge，找不到卸载程序" -ForegroundColor Red
     }
 }
