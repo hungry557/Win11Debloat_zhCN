@@ -73,7 +73,7 @@ function Hide-Bubble {
 
 .PARAMETER Message
     The text message to display inside the bubble. Defaults to
-    'View the selected changes here'.
+    '在此查看所选更改'。
 
 .PARAMETER DurationSeconds
     The number of seconds the bubble remains visible before auto-hiding.
@@ -91,7 +91,7 @@ function Show-Bubble {
         [System.Windows.Controls.Control]$TargetControl,
 
         [Parameter(Mandatory=$false)]
-        [string]$Message = 'View the selected changes here',
+        [string]$Message = '在此查看所选更改',
 
         [Parameter(Mandatory=$false)]
         [int]$DurationSeconds = 5

@@ -176,7 +176,7 @@ function EnableStoreSearchSuggestions {
         Set-Acl -Path $StoreAppsDatabase -AclObject $acl | Out-Null
     }
     catch {
-        Write-Warning "Failed to normalize ACL for store database '$StoreAppsDatabase': $($_.Exception.Message)"
+        Write-Warning "无法规范化 Store 数据库 '$StoreAppsDatabase' 的 ACL：$($_.Exception.Message)"
     }
 
     try {
@@ -184,7 +184,7 @@ function EnableStoreSearchSuggestions {
         Write-Host "已为用户 $userName 重新启用 Microsoft Store 搜索建议"
     }
     catch {
-        throw "Failed to remove '$StoreAppsDatabase' while undoing Microsoft Store search suggestions for user $userName. $($_.Exception.Message)"
+        throw "撤销用户 $userName 的 Microsoft Store 搜索建议时，无法删除 '$StoreAppsDatabase'。$($_.Exception.Message)"
     }
 }
 

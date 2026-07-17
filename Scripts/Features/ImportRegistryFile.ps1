@@ -11,7 +11,7 @@ function ImportRegistryFile {
     $regFilePath = Get-RegistryFilePathForFeature -RegistryKey $path
 
     if (-not (Test-Path $regFilePath)) {
-        $errorMessage = "Unable to find registry file: $path ($regFilePath)"
+        $errorMessage = "找不到注册表文件：$path ($regFilePath)"
         $script:RegistryImportFailures++
         Write-Host "错误：$errorMessage" -ForegroundColor Red
         Write-Host ""
@@ -58,7 +58,7 @@ function ImportRegistryFile {
                 $result.ExitCode = $importExitCode
 
                 if ($importExitCode -ne 0) {
-                    throw "Registry import failed with exit code $importExitCode for '$targetRegFilePath'"
+                    throw "注册表导入失败，退出代码 $importExitCode，文件 '$targetRegFilePath'"
                 }
             }
             catch {
@@ -87,7 +87,7 @@ function ImportRegistryFile {
         }
 
         if (-not $hasSuccess) {
-            $details = if ($regResult.Error) { $regResult.Error } else { "Exit code: $($regResult.ExitCode)" }
+            $details = if ($regResult.Error) { $regResult.Error } else { "退出代码：$($regResult.ExitCode)" }
             Write-Warning "reg import 对 '$path' 失败。回退到 PowerShell 注册表写入器。详情：$details"
             Invoke-RegistryOperationsFromRegFile -RegFilePath $targetRegFilePath
             Write-Host "操作已通过 PowerShell 注册表写入器成功完成。"

@@ -794,8 +794,8 @@
             Invoke-NavigationUpdate
         }
         catch {
-            Write-Warning "Error during GUI initialization: $($_.Exception.Message)"
-            Write-Warning "Stack trace: $($_.Exception.StackTrace)"
+            Write-Warning "GUI 初始化期间发生错误：$($_.Exception.Message)"
+            Write-Warning "堆栈跟踪：$($_.Exception.StackTrace)"
             Show-MessageBox -Message "初始化期间发生错误：$($_.Exception.Message)" -Title "初始化错误" -Button 'OK' -Icon 'Error' | Out-Null
         }
     })

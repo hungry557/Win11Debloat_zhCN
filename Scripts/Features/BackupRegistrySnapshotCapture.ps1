@@ -10,7 +10,7 @@ function Get-RegistryBackupCapturePlans {
     foreach ($feature in $SelectedRegistryFeatures) {
         $regFilePath = Get-RegistryFilePathForFeature -RegistryKey $feature.RegistryKey -UseSysprepRegFiles:$UseSysprepRegFiles
         if (-not (Test-Path $regFilePath)) {
-            throw "Unable to find registry file for backup: $($feature.RegistryKey) ($regFilePath)"
+            throw "找不到用于备份的注册表文件：$($feature.RegistryKey) ($regFilePath)"
         }
 
         foreach ($operation in @(Get-RegFileOperations -regFilePath $regFilePath)) {
@@ -33,7 +33,7 @@ function Get-RegistryBackupCapturePlans {
                 [string]$feature.RegistryKey
             }
 
-            throw "Unable to find registry undo file for backup: $undoKeyDescription ($regFilePath)"
+            throw "找不到用于备份的注册表撤销文件：$undoKeyDescription ($regFilePath)"
         }
 
         foreach ($operation in @(Get-RegFileOperations -regFilePath $regFilePath)) {
@@ -168,12 +168,12 @@ function Get-RegistryKeySnapshot {
 
     $registryParts = Split-RegistryPath -path $KeyPath
     if (-not $registryParts) {
-        throw "Unsupported registry path in backup: $KeyPath"
+        throw "备份中包含不支持的注册表路径：$KeyPath"
     }
 
     $rootKey = Get-RegistryRootKey -hiveName $registryParts.Hive
     if (-not $rootKey) {
-        throw "Unsupported registry hive in backup: $($registryParts.Hive)"
+        throw "备份中包含不支持的注册表配置单元：$($registryParts.Hive)"
     }
 
     $subKeyPath = $registryParts.SubKey
@@ -276,7 +276,7 @@ function Convert-RegistryValueToSnapshot {
     catch {
         $valueType = if ($null -ne $value) { $value.GetType().FullName } else { '<null>' }
         $valueForLog = if ($null -eq $value) { '<null>' } elseif ($value -is [array]) { ($value -join ',') } else { [string]$value }
-        throw "Failed to normalize registry value for backup. Key='$($RegistryKey.Name)' Name='$ValueName' Kind='$valueKind' RawType='$valueType' RawValue='$valueForLog'. InnerError: $($_.Exception.Message)"
+        throw "备份时无法规范化注册表值。Key='$($RegistryKey.Name)' Name='$ValueName' Kind='$valueKind' RawType='$valueType' RawValue='$valueForLog'。内部错误：$($_.Exception.Message)"
     }
 
     return @{

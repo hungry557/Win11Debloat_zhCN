@@ -5,7 +5,7 @@ function LoadAppPresetsFromJson {
         $jsonContent = Get-Content -Path $script:AppsListFilePath -Raw | ConvertFrom-Json
     }
     catch {
-        Write-Warning "Failed to read Apps.json: $_"
+        Write-Warning "无法读取 Apps.json：$_"
         return @()
     }
 

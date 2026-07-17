@@ -13,12 +13,12 @@ function Invoke-WithLoadedRestoreHive {
     elseif ($Target -like 'User:*') {
         $userName = $Target.Substring(5)
         if ([string]::IsNullOrWhiteSpace($userName)) {
-            throw 'Invalid backup target format for user restore.'
+            throw '用户还原的备份目标格式无效。'
         }
         $userName
     }
     else {
-        throw "Unsupported backup target '$Target'."
+        throw "不支持的备份目标 '$Target'。"
     }
 
     Invoke-WithTargetUserHive -TargetUserName $targetUserName -ScriptBlock $ScriptBlock -ArgumentObject $ArgumentObject
@@ -32,17 +32,17 @@ function Restore-RegistryKeySnapshot {
 
     $registryParts = Split-RegistryPath -path $Snapshot.Path
     if (-not $registryParts) {
-        throw "Unsupported registry path in backup: $($Snapshot.Path)"
+        throw "备份中包含不支持的注册表路径：$($Snapshot.Path)"
     }
 
     $rootKey = Get-RegistryRootKey -hiveName $registryParts.Hive
     if (-not $rootKey) {
-        throw "Unsupported registry hive in backup: $($registryParts.Hive)"
+        throw "备份中包含不支持的注册表配置单元：$($registryParts.Hive)"
     }
 
     $subKeyPath = $registryParts.SubKey
     if ([string]::IsNullOrWhiteSpace($subKeyPath)) {
-        throw "Unsupported root-level registry path in backup: $($Snapshot.Path)"
+        throw "备份中包含不支持的根级注册表路径：$($Snapshot.Path)"
     }
 
     if (-not $Snapshot.Exists) {
@@ -57,7 +57,7 @@ function Restore-RegistryKeySnapshot {
 
     $key = $rootKey.CreateSubKey($subKeyPath)
     if ($null -eq $key) {
-        throw "Unable to create or open registry key '$($Snapshot.Path)'"
+        throw "无法创建或打开注册表键 '$($Snapshot.Path)'"
     }
 
     try {
@@ -89,7 +89,7 @@ function Restore-RegistryValueSnapshot {
             $RegistryKey.DeleteValue($valueName, $false)
         }
         catch {
-            throw "Failed deleting registry value '$valueName' in '$($RegistryKey.Name)': $($_.Exception.Message)"
+            throw "删除注册表值 '$valueName'（位于 '$($RegistryKey.Name)'）失败：$($_.Exception.Message)"
         }
         return
     }
@@ -112,7 +112,7 @@ function Restore-RegistryValueSnapshot {
             }
         }
 
-        throw "Failed setting registry value '$valueName' in '$($RegistryKey.Name)': $($_.Exception.Message)"
+        throw "设置注册表值 '$valueName'（位于 '$($RegistryKey.Name)'）失败：$($_.Exception.Message)"
     }
 }
 
@@ -129,7 +129,7 @@ function Convert-RegistryValueKindFromBackup {
         return [System.Enum]::Parse([Microsoft.Win32.RegistryValueKind], $KindName, $true)
     }
     catch {
-        throw "Unsupported registry value kind in backup: $KindName"
+        throw "备份中包含不支持的注册表值类型：$KindName"
     }
 }
 

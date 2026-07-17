@@ -118,7 +118,7 @@ function Show-RestoreBackupDialog {
 
     $showStartMenuIntroState = {
         $backupFileText.Text = '未选择'
-        $backupCreatedText.Text = 'N/A'
+        $backupCreatedText.Text = '不适用'
         $overviewSummaryText.Visibility = 'Collapsed'
         $overviewPanel.Visibility = 'Collapsed'
         $startMenuIntroPanel.Visibility = 'Visible'

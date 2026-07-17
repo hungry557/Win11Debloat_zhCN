@@ -34,7 +34,7 @@ function Convert-RegOperationToValueKind {
             return @{ Name = $valueName; Kind = [Microsoft.Win32.RegistryValueKind]::Binary; Value = [byte[]]$Operation.ValueData }
         }
         default {
-            throw "Unsupported value type '$valueType' while applying reg operation for '$operationKeyPath'"
+            throw "应用注册表操作时遇到不支持的值类型 '$valueType'，路径 '$operationKeyPath'"
         }
     }
 }
@@ -68,12 +68,12 @@ function Get-RegistryKeyForOperation {
 
     $parts = Split-RegistryPath -path $RegistryPath
     if (-not $parts) {
-        throw "Unsupported registry path: $RegistryPath"
+        throw "不支持的注册表路径：$RegistryPath"
     }
 
     $rootKey = Get-RegistryRootKey -hiveName $parts.Hive
     if (-not $rootKey) {
-        throw "Unsupported registry hive '$($parts.Hive)' in path '$RegistryPath'"
+        throw "路径 '$RegistryPath' 中包含不支持的注册表配置单元 '$($parts.Hive)'"
     }
 
     $subKeyPath = $parts.SubKey
@@ -128,7 +128,7 @@ function Invoke-RegistrySetValueOperation {
     )
 
     if ($null -eq $KeyInfo.Key) {
-        throw [System.UnauthorizedAccessException]::new("Unable to open or create registry key '$($Operation.KeyPath)'")
+        throw [System.UnauthorizedAccessException]::new("无法打开或创建注册表键 '$($Operation.KeyPath)'")
     }
 
     try {
@@ -188,7 +188,7 @@ function Invoke-RegistryOperation {
             Invoke-RegistrySetValueOperation -Operation $Operation -KeyInfo $keyInfo
         }
         default {
-            throw "Unsupported reg operation type '$($Operation.OperationType)' in '$RegFilePath'"
+            throw "文件 '$RegFilePath' 中包含不支持的注册表操作类型 '$($Operation.OperationType)'"
         }
     }
 }
@@ -219,7 +219,7 @@ function Invoke-RegistryOperationsFromRegFile {
     }
 
     if ($totalOperations -gt 0 -and $accessDeniedCount -eq $totalOperations) {
-        throw "Registry fallback import could not apply any operations in '$RegFilePath' because all $accessDeniedCount operation(s) were blocked by access restrictions."
+            throw "文件 '$RegFilePath' 中的注册表回退导入无法应用任何操作，全部 $accessDeniedCount 项操作均因访问限制被阻止。"
     }
 
     if ($accessDeniedCount -gt 0) {

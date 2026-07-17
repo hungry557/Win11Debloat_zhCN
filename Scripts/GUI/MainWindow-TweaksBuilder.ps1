@@ -10,7 +10,7 @@ function Build-DynamicTweaks {
     $featuresJson = LoadJsonFile -filePath $script:FeaturesFilePath -expectedVersion "1.0"
 
     if (-not $featuresJson) {
-        throw "Unable to load Features.json file. The GUI cannot continue without feature definitions."
+        throw "无法加载 Features.json 文件。没有功能定义，GUI 无法继续运行。"
     }
 
     # Column containers
@@ -151,7 +151,7 @@ function Build-DynamicTweaks {
 
         $helpBtn = New-Object System.Windows.Controls.Button
         $helpBtn.Content = $helpIcon
-        $helpBtn.ToolTip = "Open the wiki for more info on '$categoryName' tweaks"
+        $helpBtn.ToolTip = "打开 Wiki 查看有关「$categoryName」调整的更多信息"
         $helpBtn.Tag = (GetWikiUrlForCategory -category $categoryName)
         $helpBtn.Style = $Window.Resources['CategoryHelpLinkButtonStyle']
         $helpBtn.Add_Click({
@@ -285,9 +285,9 @@ function Build-DynamicTweaks {
 
                     if ($featureMap.ContainsKey($soleFid)) {
                         $soleFeature = $featureMap[$soleFid]
-                        $opt = 'Apply'
-                        if ($soleFeature.FeatureId -match '^Disable') { $opt = 'Disable' } elseif ($soleFeature.FeatureId -match '^Enable') { $opt = 'Enable' }
-                        $items = @('No Change', $opt)
+                        $opt = '应用'
+                        if ($soleFeature.FeatureId -match '^Disable') { $opt = '禁用' } elseif ($soleFeature.FeatureId -match '^Enable') { $opt = '启用' }
+                        $items = @('无更改', $opt)
                         $comboName = ("Feature_{0}_Combo" -f $soleFeature.FeatureId) -replace '[^a-zA-Z0-9_]', ''
                         if (-not $panel) { $panel = GetOrCreateCategoryCard -categoryObj $categoryObj }
                         $combo = CreateLabeledCombo -parent $panel -labelText $soleFeature.Label -comboName $comboName -items $items
@@ -295,7 +295,7 @@ function Build-DynamicTweaks {
                         if ($soleFeature.ToolTip -or $soleFeature.DisableWhenApplied -eq $true) {
                             $tooltipText = $soleFeature.ToolTip
                             if ($soleFeature.DisableWhenApplied -eq $true) {
-                                $tooltipText = "This tweak is already applied and cannot be undone automatically. Visit the Win11Debloat wiki for instructions on how to manually revert this change."
+                                $tooltipText = "此调整已应用，无法自动撤销。请访问 Win11Debloat Wiki 了解如何手动还原此更改。"
                             }
                             $tipBlock = New-Object System.Windows.Controls.TextBlock
                             $tipBlock.Text = $tooltipText
@@ -312,7 +312,7 @@ function Build-DynamicTweaks {
                     continue
                 }
 
-                $items = @('No Change') + ($filteredValues | ForEach-Object { $_.Label })
+                $items = @('无更改') + ($filteredValues | ForEach-Object { $_.Label })
                 $comboName = 'Group_{0}Combo' -f $group.GroupId
                 if (-not $panel) { $panel = GetOrCreateCategoryCard -categoryObj $categoryObj }
                 $combo = CreateLabeledCombo -parent $panel -labelText $group.Label -comboName $comboName -items $items
@@ -331,9 +331,9 @@ function Build-DynamicTweaks {
             }
             elseif ($item.Type -eq 'feature') {
                 $feature = $item.Data
-                $opt = 'Apply'
-                if ($feature.FeatureId -match '^Disable') { $opt = 'Disable' } elseif ($feature.FeatureId -match '^Enable') { $opt = 'Enable' }
-                $items = @('No Change', $opt)
+                $opt = '应用'
+                if ($feature.FeatureId -match '^Disable') { $opt = '禁用' } elseif ($feature.FeatureId -match '^Enable') { $opt = '启用' }
+                $items = @('无更改', $opt)
                 $comboName = ("Feature_{0}_Combo" -f $feature.FeatureId) -replace '[^a-zA-Z0-9_]', ''
                 if (-not $panel) { $panel = GetOrCreateCategoryCard -categoryObj $categoryObj }
                 $combo = CreateLabeledCombo -parent $panel -labelText $feature.Label -comboName $comboName -items $items
@@ -341,7 +341,7 @@ function Build-DynamicTweaks {
                 if ($feature.ToolTip -or $feature.DisableWhenApplied -eq $true) {
                     $tooltipText = $feature.ToolTip
                     if ($feature.DisableWhenApplied -eq $true) {
-                        $tooltipText = "This tweak is already applied and cannot be undone automatically. Visit the Win11Debloat wiki for instructions on how to manually revert this change."
+                        $tooltipText = "此调整已应用，无法自动撤销。请访问 Win11Debloat Wiki 了解如何手动还原此更改。"
                     }
 
                     $tipBlock = New-Object System.Windows.Controls.TextBlock

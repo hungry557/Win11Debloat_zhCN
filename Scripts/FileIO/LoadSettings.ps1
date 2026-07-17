@@ -8,7 +8,7 @@ function LoadSettings {
     $settingsJson = LoadJsonFile -filePath $filePath -expectedVersion $expectedVersion
     
     if (-not $settingsJson -or -not $settingsJson.Settings) {
-        throw "Failed to load settings from $(Split-Path $filePath -Leaf)"
+        throw "无法从 $(Split-Path $filePath -Leaf) 加载设置"
     }
 
     # Get current Windows build version

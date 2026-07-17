@@ -23,16 +23,16 @@ if exist "%wtDefaultPath%" (
 set "SCRIPT_PATH=%~dp0Win11Debloat.ps1"
 
 if defined wtPath (
-    call :Log Launching Win11Debloat.ps1 with Windows Terminal...
-    PowerShell -NoProfile -ExecutionPolicy Bypass -Command "$p='%SCRIPT_PATH:'=''%'; $q=[char]34; Start-Process -FilePath '%wtPath%' -ArgumentList ('PowerShell -NoProfile -ExecutionPolicy Bypass -File ' + $q + $p + $q) -Verb RunAs" >> "%logFile%" || call :Error "PowerShell command failed"
+    call :Log 正在通过 Windows Terminal 启动 Win11Debloat.ps1...
+    PowerShell -NoProfile -ExecutionPolicy Bypass -Command "$p='%SCRIPT_PATH:'=''%'; $q=[char]34; Start-Process -FilePath '%wtPath%' -ArgumentList ('PowerShell -NoProfile -ExecutionPolicy Bypass -File ' + $q + $p + $q) -Verb RunAs" >> "%logFile%" || call :Error "PowerShell 命令执行失败"
 ) else (
-    echo Windows Terminal not found, using default PowerShell...
-    call :Log Windows Terminal not found. Using default PowerShell to launch Win11Debloat.ps1...
-    PowerShell -NoProfile -ExecutionPolicy Bypass -Command "$p='%SCRIPT_PATH:'=''%'; $q=[char]34; Start-Process PowerShell -ArgumentList ('-NoProfile -ExecutionPolicy Bypass -File ' + $q + $p + $q) -Verb RunAs" >> "%logFile%" || call :Error "PowerShell command failed"
+    echo 未找到 Windows Terminal，正在使用默认 PowerShell...
+    call :Log 未找到 Windows Terminal。正在使用默认 PowerShell 启动 Win11Debloat.ps1...
+    PowerShell -NoProfile -ExecutionPolicy Bypass -Command "$p='%SCRIPT_PATH:'=''%'; $q=[char]34; Start-Process PowerShell -ArgumentList ('-NoProfile -ExecutionPolicy Bypass -File ' + $q + $p + $q) -Verb RunAs" >> "%logFile%" || call :Error "PowerShell 命令执行失败"
 )
 
 echo.
-echo If you need further assistance, please open an issue at:
+echo 如需进一步帮助，请在此提交问题：
 echo https://github.com/Raphire/Win11Debloat/issues
 goto :EOF
 
@@ -43,8 +43,8 @@ goto :EOF
 
 :: Error Handler
 :Error
-echo(ERROR: %*
-call :Log ERROR: %*
-echo Logged in %logFile%
+echo(错误：%*
+call :Log 错误：%*
+echo 已记录到 %logFile%
 pause
 goto :EOF

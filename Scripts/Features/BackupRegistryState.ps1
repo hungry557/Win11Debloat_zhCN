@@ -38,7 +38,7 @@ function New-RegistrySettingsBackup {
 
     $backupConfig = Get-RegistryBackupPayload -SelectedFeatures $selectedFeatures -UndoFeatures $undoFeatures -CreatedAt $timestamp
     if (-not (SaveToFile -Config $backupConfig -FilePath $backupFilePath -MaxDepth 25)) {
-        throw "Failed to save registry backup to '$backupFilePath'"
+        throw "无法将注册表备份保存到 '$backupFilePath'"
     }
 
     Write-Host "备份创建成功：$backupFilePath"

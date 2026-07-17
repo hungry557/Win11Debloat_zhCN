@@ -21,14 +21,14 @@ function Load-RegistryBackupFromFile {
     )
 
     if (-not (Test-Path -LiteralPath $FilePath)) {
-        throw "Backup file was not found: $FilePath"
+        throw "备份文件未找到：$FilePath"
     }
 
     try {
         $rawBackup = Get-Content -LiteralPath $FilePath -Raw -ErrorAction Stop | ConvertFrom-Json -ErrorAction Stop
     }
     catch {
-        throw "Failed to read backup file '$FilePath'. The file is not valid JSON."
+        throw "无法读取备份文件 '$FilePath'。该文件不是有效的 JSON。"
     }
 
     return Normalize-RegistryBackup -Backup $rawBackup
@@ -61,22 +61,22 @@ function Normalize-RegistryBackup {
     $errors = New-Object System.Collections.Generic.List[string]
 
     if (-not $Backup.PSObject.Properties['Version']) {
-        $errors.Add('Missing property: Version')
+        $errors.Add('缺少属性：Version')
     }
     elseif ([string]$Backup.Version -ne '1.0') {
-        $errors.Add("Unsupported backup version '$($Backup.Version)'.")
+        $errors.Add("不支持的备份版本 '$($Backup.Version)'。")
     }
 
     if (-not $Backup.PSObject.Properties['BackupType']) {
-        $errors.Add('Missing property: BackupType')
+        $errors.Add('缺少属性：BackupType')
     }
     elseif ([string]$Backup.BackupType -ne 'RegistryState') {
-        $errors.Add("Unsupported BackupType '$($Backup.BackupType)'.")
+        $errors.Add("不支持的 BackupType '$($Backup.BackupType)'。")
     }
 
     $normalizedTarget = ''
     if (-not $Backup.PSObject.Properties['Target'] -or [string]::IsNullOrWhiteSpace([string]$Backup.Target)) {
-        $errors.Add('Missing property: Target')
+        $errors.Add('缺少属性：Target')
     }
     else {
         $normalizedTarget = [string]$Backup.Target
@@ -88,24 +88,24 @@ function Normalize-RegistryBackup {
             $targetUserName = $normalizedTarget.Substring(5)
             $targetValidation = Test-TargetUserName -UserName $targetUserName
             if (-not $targetValidation.IsValid) {
-                $errors.Add("Invalid user '$normalizedTarget'")
+                $errors.Add("无效的用户 '$normalizedTarget'")
             }
         }
         elseif ($normalizedTarget -like 'CurrentUser:*') {
             $targetCurrentUserName = $normalizedTarget.Substring(12)
             if ([string]::IsNullOrWhiteSpace($targetCurrentUserName) -or
                 -not (Test-UserNameMatch -UserNameA $targetCurrentUserName -UserNameB $env:USERNAME)) {
-                 $errors.Add("Backup was made for '$targetCurrentUserName', this does not match current user '$env:USERNAME'.")
+                 $errors.Add("备份针对用户 '$targetCurrentUserName' 创建，与当前用户 '$env:USERNAME' 不匹配。")
             }
         }
         else {
-            $errors.Add("Unsupported Target '$normalizedTarget'.")
+            $errors.Add("不支持的 Target '$normalizedTarget'。")
         }
     }
 
     $registryKeys = @()
     if (-not $Backup.PSObject.Properties['RegistryKeys']) {
-        $errors.Add('Missing property: RegistryKeys')
+        $errors.Add('缺少属性：RegistryKeys')
     }
     else {
         $registryKeys = @($Backup.RegistryKeys)
@@ -130,7 +130,7 @@ function Normalize-RegistryBackup {
 
     $allSelectedFeatures = @($selectedFeatures) + @($selectedUndoFeatures)
     if ($allSelectedFeatures.Count -eq 0) {
-        $errors.Add('Backup must contain at least one feature ID in SelectedFeatures or SelectedUndoFeatures.')
+        $errors.Add('备份必须在 SelectedFeatures 或 SelectedUndoFeatures 中至少包含一个功能 ID。')
     }
     else {
         try {
@@ -140,17 +140,17 @@ function Normalize-RegistryBackup {
             }
         }
         catch {
-            $errors.Add("Failed to validate backup: $($_.Exception.Message)")
+            $errors.Add("备份验证失败：$($_.Exception.Message)")
         }
     }
 
     if ($errors.Count -gt 0) {
         Write-Error "备份验证失败：$($errors -join ' ')"
         if ($errors.Count -eq 1) {
-            throw ("Validation failed: $($errors[0])")
+            throw ("验证失败：$($errors[0])")
         }
         else {
-            throw ("Validation failed with $($errors.Count) errors. See console output for details.")
+            throw ("验证失败，共 $($errors.Count) 个错误。详情请查看控制台输出。")
         }
     }
 

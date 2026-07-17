@@ -6,37 +6,37 @@ function GetFriendlyRegistryBackupTarget {
     )
 
     if ([string]::IsNullOrWhiteSpace($Target)) {
-        return 'Unknown'
+        return '未知'
     }
 
     if ($Target -eq 'DefaultUserProfile') {
-        return 'Default user profile'
+        return '默认用户配置文件'
     }
 
     if ($Target -eq 'CurrentUser') {
-        return 'Current user'
+        return '当前用户'
     }
 
     if ($Target -eq 'AllUsers') {
-        return 'All users'
+        return '所有用户'
     }
 
     if ($Target -like 'CurrentUser:*') {
         $userName = $Target.Substring(12)
         if ([string]::IsNullOrWhiteSpace($userName)) {
-            return 'Current user'
+            return '当前用户'
         }
 
-        return "Current user ($userName)"
+        return "当前用户 ($userName)"
     }
 
     if ($Target -like 'User:*') {
         $userName = $Target.Substring(5)
         if ([string]::IsNullOrWhiteSpace($userName)) {
-            return 'User'
+            return '用户'
         }
 
-        return "User ($userName)"
+        return "用户 ($userName)"
     }
 
     return $Target

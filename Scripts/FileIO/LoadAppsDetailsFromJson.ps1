@@ -11,7 +11,7 @@ function LoadAppsDetailsFromJson {
         $jsonContent = Get-Content -Path $script:AppsListFilePath -Raw | ConvertFrom-Json
     }
     catch {
-        Write-Error "Failed to read Apps.json: $_"
+        Write-Error "无法读取 Apps.json：$_"
         return $apps
     }
 
