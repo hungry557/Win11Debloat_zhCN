@@ -1,4 +1,4 @@
-function Get-NormalizedSelectedFeatureIdsFromBackup {
+﻿function Get-NormalizedSelectedFeatureIdsFromBackup {
     param(
         [Parameter(Mandatory)]
         $Backup

@@ -1,4 +1,4 @@
-[CmdletBinding(SupportsShouldProcess)]
+﻿[CmdletBinding(SupportsShouldProcess)]
 param (
     [switch]$CLI,
     [switch]$Silent,
@@ -262,7 +262,7 @@ if (-not ((Test-Path $script:DefaultSettingsFilePath) -and (Test-Path $script:Ap
 # Load feature info from file
 $script:Features = @{}
 try {
-    $featuresData = Get-Content -Path $script:FeaturesFilePath -Raw | ConvertFrom-Json
+    $featuresData = Get-Content -Path $script:FeaturesFilePath -Raw -Encoding UTF8 | ConvertFrom-Json
     foreach ($feature in $featuresData.Features) {
         if ([string]::IsNullOrWhiteSpace([string]$feature.FeatureId) -or [string]::IsNullOrWhiteSpace([string]$feature.Label) -or [string]::IsNullOrWhiteSpace([string]$feature.ApplyText)) {
             Write-Warning "功能 '$($feature.FeatureId)' 在 Features.json 中缺少 FeatureId、Label 或 ApplyText，将被跳过。"

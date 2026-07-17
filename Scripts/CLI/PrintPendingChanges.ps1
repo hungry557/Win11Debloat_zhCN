@@ -1,4 +1,4 @@
-<#
+﻿<#
     .SYNOPSIS
         Prints a summary of all pending changes to the console for the user to review.
 

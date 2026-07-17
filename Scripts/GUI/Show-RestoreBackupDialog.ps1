@@ -1,4 +1,4 @@
-<#
+﻿<#
     .SYNOPSIS
         Displays the Restore Backup wizard dialog.
 
@@ -49,7 +49,7 @@ function Show-RestoreBackupDialog {
         throw '找不到还原备份窗口架构文件。'
     }
 
-    $xaml = Get-Content -Path $schemaPath -Raw
+    $xaml = Get-Content -Path $schemaPath -Raw -Encoding UTF8
 
     $reader = [System.Xml.XmlReader]::Create([System.IO.StringReader]::new($xaml))
     try {

@@ -1,4 +1,4 @@
-<#
+﻿<#
     .SYNOPSIS
     Replaces the start menu layout for all user profiles.
 

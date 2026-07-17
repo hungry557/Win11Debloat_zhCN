@@ -1,4 +1,4 @@
-<#
+﻿<#
     .SYNOPSIS
     Restarts Windows Explorer to apply system changes.
 

@@ -1,4 +1,4 @@
-function AwaitKeyToExit {
+﻿function AwaitKeyToExit {
     # Suppress prompt if Silent parameter was passed
     if (-not $Silent) {
         Write-Output ""

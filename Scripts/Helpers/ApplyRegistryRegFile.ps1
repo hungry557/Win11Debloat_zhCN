@@ -1,4 +1,4 @@
-function Get-NormalizedRegistryValueName {
+﻿function Get-NormalizedRegistryValueName {
     param(
         [AllowNull()]
         $ValueName

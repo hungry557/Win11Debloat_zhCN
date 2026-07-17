@@ -1,4 +1,4 @@
-function Show-RestoreBackupWindow {
+﻿function Show-RestoreBackupWindow {
     param(
         [System.Windows.Window]$Owner = $null
     )

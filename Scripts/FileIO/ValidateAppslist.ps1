@@ -1,4 +1,4 @@
-# Returns a validated list of apps based on the provided appsList and the supported apps from Apps.json
+﻿# Returns a validated list of apps based on the provided appsList and the supported apps from Apps.json
 function ValidateAppslist {
     param (
         $appsList

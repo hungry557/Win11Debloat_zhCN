@@ -1,4 +1,4 @@
-function Show-ApplyModal {
+﻿function Show-ApplyModal {
     param (
         [Parameter(Mandatory=$false)]
         [System.Windows.Window]$Owner = $null,
@@ -26,7 +26,7 @@ function Show-ApplyModal {
     }
     
     # Load XAML from file
-    $xaml = Get-Content -Path $script:ApplyChangesWindowSchema -Raw
+    $xaml = Get-Content -Path $script:ApplyChangesWindowSchema -Raw -Encoding UTF8
     $reader = [System.Xml.XmlReader]::Create([System.IO.StringReader]::new($xaml))
     try {
         $applyWindow = [System.Windows.Markup.XamlReader]::Load($reader)

@@ -1,4 +1,4 @@
-# MainWindow-AppSelection.ps1
+﻿# MainWindow-AppSelection.ps1
 # App-selection panel functions: tri-state helpers, sorting, search/highlight, app loading, preset management, and removal scope.
 
 function Add-TriStateClickBehavior {

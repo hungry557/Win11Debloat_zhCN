@@ -1,4 +1,4 @@
-# List of known Windows telemetry-related scheduled tasks
+﻿# List of known Windows telemetry-related scheduled tasks
 <#
     .SYNOPSIS
     Returns the list of known Windows telemetry-related scheduled tasks.

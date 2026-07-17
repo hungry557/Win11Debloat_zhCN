@@ -1,4 +1,4 @@
-function ImportConfigToParams {
+﻿function ImportConfigToParams {
     param (
         [Parameter(Mandatory = $true)]
         [string]$ConfigPath,

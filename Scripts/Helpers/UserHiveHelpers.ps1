@@ -1,4 +1,4 @@
-function New-TargetUserHiveContext {
+﻿function New-TargetUserHiveContext {
     param(
         [Parameter(Mandatory)]
         [string]$TargetUserName,

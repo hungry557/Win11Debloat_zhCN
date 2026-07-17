@@ -1,4 +1,4 @@
-function CheckIfUserExists {
+﻿function CheckIfUserExists {
     param (
         [string]$userName
     )

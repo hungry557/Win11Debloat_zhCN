@@ -1,4 +1,4 @@
-function CreateSystemRestorePoint {
+﻿function CreateSystemRestorePoint {
     $SysRestore = Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SystemRestore" -Name "RPSessionInterval"
     $failed = $false
 

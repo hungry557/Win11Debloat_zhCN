@@ -1,4 +1,4 @@
-function Show-ImportExportConfigWindow {
+﻿function Show-ImportExportConfigWindow {
     param (
         [System.Windows.Window]$Owner,
         [bool]$UsesDarkMode,
@@ -35,7 +35,7 @@ function Show-ImportExportConfigWindow {
         return $null
     }
 
-    $xaml = Get-Content -Path $schemaPath -Raw
+    $xaml = Get-Content -Path $schemaPath -Raw -Encoding UTF8
     $reader = [System.Xml.XmlReader]::Create([System.IO.StringReader]::new($xaml))
     try {
         $dlg = [System.Windows.Markup.XamlReader]::Load($reader)

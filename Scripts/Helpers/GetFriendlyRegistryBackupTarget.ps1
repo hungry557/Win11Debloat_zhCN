@@ -1,4 +1,4 @@
-function GetFriendlyRegistryBackupTarget {
+﻿function GetFriendlyRegistryBackupTarget {
     param(
         [AllowNull()]
         [AllowEmptyString()]

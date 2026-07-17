@@ -1,4 +1,4 @@
-function Invoke-WithLoadedRestoreHive {
+﻿function Invoke-WithLoadedRestoreHive {
     param(
         [Parameter(Mandatory)]
         [string]$Target,

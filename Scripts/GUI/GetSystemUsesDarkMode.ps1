@@ -1,4 +1,4 @@
-# Checks if the system is set to use dark mode for apps
+﻿# Checks if the system is set to use dark mode for apps
 function GetSystemUsesDarkMode {
     try {
         $personalizeKey = Get-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize'

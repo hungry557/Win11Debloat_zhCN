@@ -1,4 +1,4 @@
-<#
+﻿<#
     .SYNOPSIS
     Disables Microsoft Store search suggestions in the start menu for all user profiles.
 

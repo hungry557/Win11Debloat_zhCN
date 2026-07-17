@@ -1,4 +1,4 @@
-# Shows application selection window that allows the user to select what apps they want to remove or keep
+﻿# Shows application selection window that allows the user to select what apps they want to remove or keep
 function Show-AppSelectionWindow {
     Add-Type -AssemblyName PresentationFramework,PresentationCore,WindowsBase | Out-Null
 
@@ -17,7 +17,7 @@ function Show-AppSelectionWindow {
     }
 
     # Load XAML from file
-    $xaml = Get-Content -Path $script:AppSelectionSchema -Raw
+    $xaml = Get-Content -Path $script:AppSelectionSchema -Raw -Encoding UTF8
     $reader = [System.Xml.XmlReader]::Create([System.IO.StringReader]::new($xaml))
     try {
         $window = [System.Windows.Markup.XamlReader]::Load($reader)

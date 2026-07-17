@@ -1,4 +1,4 @@
-# Shows a Windows 11 styled custom message box
+﻿# Shows a Windows 11 styled custom message box
 function Show-MessageBox {
     param (
         [Parameter(Mandatory=$true)]
@@ -46,7 +46,7 @@ function Show-MessageBox {
     }
     
     # Load XAML from file
-    $xaml = Get-Content -Path $script:MessageBoxSchema -Raw
+    $xaml = Get-Content -Path $script:MessageBoxSchema -Raw -Encoding UTF8
     $reader = [System.Xml.XmlReader]::Create([System.IO.StringReader]::new($xaml))
     try {
         $msgWindow = [System.Windows.Markup.XamlReader]::Load($reader)

@@ -1,4 +1,4 @@
-# Check if this machine supports S0 Modern Standby power state. Returns true if S0 Modern Standby is supported, false otherwise.
+﻿# Check if this machine supports S0 Modern Standby power state. Returns true if S0 Modern Standby is supported, false otherwise.
 function CheckModernStandbySupport {
     $count = 0
 

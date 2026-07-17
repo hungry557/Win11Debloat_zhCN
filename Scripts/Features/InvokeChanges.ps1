@@ -1,4 +1,4 @@
-<#
+﻿<#
     .SYNOPSIS
         Applies a single feature/debloat operation.
 

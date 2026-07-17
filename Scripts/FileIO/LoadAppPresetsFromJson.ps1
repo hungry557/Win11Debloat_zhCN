@@ -1,8 +1,8 @@
-# Read Apps.json and return the list of preset objects (Name + AppIds).
+﻿# Read Apps.json and return the list of preset objects (Name + AppIds).
 # Returns an empty array if the file cannot be read or contains no presets.
 function LoadAppPresetsFromJson {
     try {
-        $jsonContent = Get-Content -Path $script:AppsListFilePath -Raw | ConvertFrom-Json
+        $jsonContent = Get-Content -Path $script:AppsListFilePath -Raw -Encoding UTF8 | ConvertFrom-Json
     }
     catch {
         Write-Warning "无法读取 Apps.json：$_"

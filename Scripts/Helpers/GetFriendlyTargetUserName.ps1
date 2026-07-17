@@ -1,4 +1,4 @@
-function GetFriendlyTargetUserName {
+﻿function GetFriendlyTargetUserName {
     $target = GetTargetUserForAppRemoval
 
     switch ($target) {

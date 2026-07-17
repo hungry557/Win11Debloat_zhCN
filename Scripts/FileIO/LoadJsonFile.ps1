@@ -1,4 +1,4 @@
-# Loads a JSON file from the specified path and returns the parsed object
+﻿# Loads a JSON file from the specified path and returns the parsed object
 # Returns $null if the file doesn't exist or if parsing fails
 function LoadJsonFile {
     param (
@@ -15,7 +15,7 @@ function LoadJsonFile {
     }
     
     try {
-        $jsonContent = Get-Content -Path $filePath -Raw | ConvertFrom-Json
+        $jsonContent = Get-Content -Path $filePath -Raw -Encoding UTF8 | ConvertFrom-Json
         
         # Validate version if specified
         if ($expectedVersion -and $jsonContent.Version -and $jsonContent.Version -ne $expectedVersion) {

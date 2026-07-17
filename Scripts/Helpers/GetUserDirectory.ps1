@@ -1,4 +1,4 @@
-# Returns the directory path of the specified user, exits script if user path can't be found
+﻿# Returns the directory path of the specified user, exits script if user path can't be found
 function GetUserDirectory {
     param (
         $userName,

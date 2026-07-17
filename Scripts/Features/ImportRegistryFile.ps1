@@ -1,4 +1,4 @@
-# Import & execute regfile
+﻿# Import & execute regfile
 function ImportRegistryFile {
     param (
         $message,

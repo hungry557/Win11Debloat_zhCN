@@ -1,4 +1,4 @@
-<#
+﻿<#
     .SYNOPSIS
         Loads a registry backup from a JSON file and normalizes its contents.
 
@@ -25,7 +25,7 @@ function Load-RegistryBackupFromFile {
     }
 
     try {
-        $rawBackup = Get-Content -LiteralPath $FilePath -Raw -ErrorAction Stop | ConvertFrom-Json -ErrorAction Stop
+        $rawBackup = Get-Content -LiteralPath $FilePath -Raw -Encoding UTF8 -ErrorAction Stop | ConvertFrom-Json -ErrorAction Stop
     }
     catch {
         throw "无法读取备份文件 '$FilePath'。该文件不是有效的 JSON。"

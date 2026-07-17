@@ -1,4 +1,4 @@
-# Forcefully removes Microsoft Edge using its uninstaller
+﻿# Forcefully removes Microsoft Edge using its uninstaller
 # Credit: Based on work from loadstring1 & ave9858
 function ForceRemoveEdge {
     Write-Host "> 正在强制卸载 Microsoft Edge..."

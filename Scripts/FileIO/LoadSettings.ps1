@@ -1,4 +1,4 @@
-# Loads settings from a JSON file and adds them to script params
+﻿# Loads settings from a JSON file and adds them to script params
 function LoadSettings {
     param (
         [string]$filePath,

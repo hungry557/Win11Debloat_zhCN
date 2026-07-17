@@ -5,7 +5,7 @@
     $usesDarkMode = GetSystemUsesDarkMode
 
     # ---- Load XAML ----
-    $xaml = Get-Content -Path $script:MainWindowSchema -Raw
+    $xaml = Get-Content -Path $script:MainWindowSchema -Raw -Encoding UTF8
     $reader = [System.Xml.XmlReader]::Create([System.IO.StringReader]::new($xaml))
     try {
         $window = [System.Windows.Markup.XamlReader]::Load($reader)

@@ -1,4 +1,4 @@
-<#
+﻿<#
     .SYNOPSIS
     Removes one or more Windows app packages based on the target scope.
 
@@ -237,7 +237,7 @@ function Get-AppRemovalMethod {
         $script:AppRemovalMethodCache = @{}
         try {
             if (Test-Path $script:AppsListFilePath) {
-                $appsJson = Get-Content -Path $script:AppsListFilePath -Raw | ConvertFrom-Json
+                $appsJson = Get-Content -Path $script:AppsListFilePath -Raw -Encoding UTF8 | ConvertFrom-Json
                 foreach ($appData in $appsJson.Apps) {
                     $rawMethod = $appData.RemovalMethod
                     $method = if ($rawMethod -and $rawMethod -eq 'WinGet') { 'WinGet' } else { 'Appx' }

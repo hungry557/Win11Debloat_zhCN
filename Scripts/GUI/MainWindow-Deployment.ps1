@@ -1,4 +1,4 @@
-# MainWindow-Deployment.ps1
+﻿# MainWindow-Deployment.ps1
 # Overview generation, pending tweak actions, feature labels, tweak preset maps, apply logic, user mode state, user selection, and validation.
 
 function Get-UndoFeatureLabel {
