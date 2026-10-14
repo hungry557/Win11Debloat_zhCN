@@ -243,7 +243,7 @@ function Get-AppRemovalScopeTarget {
         "AppRemovalScopeAllUsers" { return 'AllUsers' }
         "AppRemovalScopeCurrentUser" { return 'CurrentUser' }
         default {
-            Write-Warning "无法识别的应用移除范围 '$($selectedItem.Name)'。已跳过应用移除。"
+            Write-Warning "无法识别的应用卸载范围 '$($selectedItem.Name)'。已跳过应用卸载。"
             return $null
         }
     }

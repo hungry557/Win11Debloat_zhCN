@@ -21,7 +21,7 @@ function Remove-SelectedApps {
 
     if ($script:Params.ContainsKey("WhatIf")) {
         foreach ($app in $appslist) {
-            Write-Host "[WhatIf] 移除应用包：$app" -ForegroundColor Cyan
+            Write-Host "[WhatIf] 卸载应用包：$app" -ForegroundColor Cyan
         }
 
         return $true
@@ -51,7 +51,7 @@ function Remove-SelectedApps {
             continue
         }
 
-        Write-Host "正在移除 $app"
+        Write-Host "正在卸载 $app"
 
         if ((Get-AppRemovalMethod $app) -eq 'WinGet') {
             $schedulingFailed = $false
@@ -145,7 +145,7 @@ function Remove-WinGetApp {
     if ($null -ne $SchedulingFailed) { $SchedulingFailed.Value = $false }
 
     if (-not $script:WingetInstalled) {
-        Write-Error "WinGet 未安装或版本过旧，无法移除 $app"
+        Write-Error "WinGet 未安装或版本过旧，无法卸载 $app"
         return $false
     }
 
@@ -292,7 +292,7 @@ function Remove-AppxApp {
         } -ArgumentList @($appPattern, $targetUser)
     }
     catch {
-        Write-Error "无法通过 Appx 移除 $app：$_"
+        Write-Error "无法通过 Appx 卸载 $app：$_"
         return $false
     }
 
@@ -334,7 +334,7 @@ function Get-AppRemovalMethod {
             }
         }
         catch {
-            Write-Warning "无法从 '$script:AppsListFilePath' 加载应用移除方法。未知应用将默认使用 Appx。错误：$_"
+            Write-Warning "无法从 '$script:AppsListFilePath' 加载应用卸载方法。未知应用将默认使用 Appx。错误：$_"
         }
     }
 

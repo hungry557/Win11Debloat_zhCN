@@ -4,7 +4,7 @@
 [![Join the Discussion](https://img.shields.io/badge/Join-the%20Discussion-2D9F2D?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Raphire/Win11Debloat/discussions)
 [![Static Badge](https://img.shields.io/badge/Documentation-_?style=for-the-badge&logo=bookstack&color=grey)](https://github.com/Raphire/Win11Debloat/wiki/)
 
-Win11Debloat 是一款轻量、易用的 PowerShell 脚本，可让您快速精简和自定义 Windows 体验，无需安装！您可以用它移除预装应用、禁用遥测、去除侵入式界面元素等等。不必再逐个进入设置或一个个卸载应用，Win11Debloat 让这一切变得简单快捷。
+Win11Debloat 是一款轻量、易用的 PowerShell 脚本，可让您快速精简和自定义 Windows 体验，无需安装！您可以用它卸载预装应用、禁用遥测、去除侵入式界面元素等等。不必再逐个进入设置或一个个卸载应用，Win11Debloat 让这一切变得简单快捷。
 
 脚本还包含许多系统管理员和高级用户会喜欢的功能，例如强大的命令行界面、对 Windows 审核模式的支持，以及为其他 Windows 用户应用更改的能力。您还可以方便地导出和导入偏好设置，在所有系统上快速应用相同配置。更多详情请参阅 [wiki](https://github.com/Raphire/Win11Debloat/wiki)。
 
@@ -77,22 +77,22 @@ Win11Debloat 是一款轻量、易用的 PowerShell 脚本，可让您快速精�
 以下是 Win11Debloat 主要功能的概览。更多详情请访问 [wiki](https://github.com/Raphire/Win11Debloat/wiki)。
 
 > [!Tip]
-> Win11Debloat 所做的几乎所有更改都可以轻松还原，几乎所有应用都可以通过 Microsoft Store 重新安装。有关还原更改的更多信息，请访问 [wiki](https://github.com/Raphire/Win11Debloat/wiki/Reverting-Changes)。
+> Win11Debloat 所做的几乎所有更改都可以轻松恢复，几乎所有应用都可以通过 Microsoft Store 重新安装。有关恢复更改的更多信息，请访问 [wiki](https://github.com/Raphire/Win11Debloat/wiki/Reverting-Changes)。
 
-#### 应用移除
+#### 卸载应用
 
-- 移除多种预装应用。更多信息请见[此处](https://github.com/Raphire/Win11Debloat/wiki/App-Removal)。
+- 卸载多种预装应用。更多信息请见[此处](https://github.com/Raphire/Win11Debloat/wiki/App-Removal)。
 
 #### 隐私与推荐内容
 
-- 禁用遥测、诊断数据、活动历史、应用启动跟踪和定向广告。
-- 禁用 Windows、锁屏和 Microsoft Edge 中的提示、技巧、建议和广告。
+- 禁用遥测、诊断数据、活动历史、应用启动跟踪和个性化广告。
+- 禁用 Windows、锁屏和 Microsoft Edge 中的提示、技巧、推荐内容和广告。
 - 禁用 Windows 定位服务、应用位置访问和查找我的设备位置跟踪。
 - 隐藏设置「主页」页面上的 Microsoft 365 广告，或完全隐藏「主页」页面。
 
 #### AI 功能
 
-- 禁用并移除 Microsoft Copilot、Windows Recall 和 Click to Do。
+- 禁用并卸载 Microsoft Copilot、Windows 回顾（Recall）和“单击以执行”。
 - 防止 AI 服务（WSAIFabricSvc）自动启动。
 - 禁用 Edge、Chrome、画图和记事本中的 AI 功能。
 
@@ -124,7 +124,7 @@ Win11Debloat 是一款轻量、易用的 PowerShell 脚本，可让您快速精�
 
 - 通过移除固定应用、隐藏推荐内容和自定义「所有应用」部分来自定义开始菜单。
 - 禁用开始菜单中的手机连接移动设备集成。
-- 在 Windows 搜索中禁用 Bing 网页搜索和 Copilot 集成以及 Microsoft Store 应用建议。
+- 在 Windows 搜索中禁用必应网络搜索和 Copilot 集成，以及 Microsoft Store 应用推荐。
 
 #### 任务栏
 
@@ -145,20 +145,20 @@ Win11Debloat 是一款轻量、易用的 PowerShell 脚本，可让您快速精�
 - 将常用文件夹（桌面、下载等）添加回文件资源管理器中的「此电脑」。
 - 更改文件资源管理器中驱动器盘符的位置或可见性。
 
-#### 多任务
+#### 多任务处理
 
 - 禁用窗口贴靠。
-- 拖动或贴靠窗口时禁用贴靠助手和贴靠布局建议。
+- 禁用窗口贴靠时的应用建议，并隐藏贴靠布局。
 - 更改贴靠窗口或按 Alt+Tab 时是否显示标签页。
 
-#### 可选 Windows 功能
+#### Windows 可选功能
 
 - 启用 Windows 沙盒，一个用于安全隔离运行应用程序的轻量级桌面环境。
 - 启用适用于 Linux 的 Windows 子系统，允许您直接在 Windows 上运行 Linux 环境。
 
 #### 其他
 
-- 禁用 Xbox 游戏栏集成以及游戏/屏幕录制。卸载 Xbox 游戏栏后，这也会禁用 `ms-gamingoverlay`/`ms-gamebar` 弹窗。
+- 禁用 Xbox Game Bar 集成以及游戏/屏幕录制。卸载 Xbox Game Bar 后，这也会禁用 `ms-gamingoverlay`/`ms-gamebar` 弹窗。
 - 禁用 Brave 浏览器中的冗余功能（AI、加密货币、新闻等）。
 
 #### 高级功能

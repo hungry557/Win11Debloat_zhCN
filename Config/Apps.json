@@ -4,7 +4,7 @@
     {
       "FriendlyName": "视频编辑器（Clipchamp）",
       "AppId": "Clipchamp.Clipchamp",
-      "Description": "Microsoft 出品的视频编辑器",
+      "Description": "微软出品的视频编辑器",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -12,7 +12,7 @@
     {
       "FriendlyName": "三维建模（3D Builder）",
       "AppId": "Microsoft.3DBuilder",
-      "Description": "基础 3D 建模软件",
+      "Description": "基础三维建模软件",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -68,7 +68,7 @@
     {
       "FriendlyName": "必应翻译",
       "AppId": "Microsoft.BingTranslator",
-      "Description": "通过 Bing 提供的翻译服务",
+      "Description": "必应翻译服务",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -84,7 +84,7 @@
     {
       "FriendlyName": "必应天气",
       "AppId": "Microsoft.BingWeather",
-      "Description": "通过 Bing 获取天气预报",
+      "Description": "必应天气预报",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -92,7 +92,7 @@
     {
       "FriendlyName": "AI助手（Microsoft Copilot）",
       "AppId": "XP9CXNGPPJ97XX",
-      "Description": "集成于 Windows 的 AI 助手",
+      "Description": "集成在 Windows 中的AI助手",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "WinGet"
@@ -100,7 +100,7 @@
     {
       "FriendlyName": "Copilot+ AI中心",
       "AppId": "Microsoft.Windows.AIHub",
-      "Description": "Copilot+ AI Hub 应用（适用于 Windows 11 24H2 及以上）",
+      "Description": "Copilot+ AI中心应用（Windows 11 24H2 及更高版本）",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -108,7 +108,7 @@
     {
       "FriendlyName": "微软电脑管家",
       "AppId": "Microsoft.PCManager",
-      "Description": "Microsoft PC Manager 系统清理与优化工具（通常预装）",
+      "Description": "微软提供的系统清理和优化工具，通常为预装应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -116,7 +116,7 @@
     {
       "FriendlyName": "入门",
       "AppId": "Microsoft.Getstarted",
-      "Description": "Windows 使用技巧与入门指南（在 Windows 11 中无法卸载）",
+      "Description": "Windows 使用技巧和入门指南（在 Windows 11 中无法卸载）",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -124,7 +124,7 @@
     {
       "FriendlyName": "消息",
       "AppId": "Microsoft.Messaging",
-      "Description": "消息应用，常与 Skype 集成（已基本停用）",
+      "Description": "消息应用，通常与 Skype 集成（大部分功能已停止维护）",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -132,7 +132,7 @@
     {
       "FriendlyName": "三维查看器",
       "AppId": "Microsoft.Microsoft3DViewer",
-      "Description": "3D 模型查看器",
+      "Description": "用于查看 3D 模型（已停止支持）",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -148,7 +148,7 @@
     {
       "FriendlyName": "Office 中心",
       "AppId": "Microsoft.MicrosoftOfficeHub",
-      "Description": "访问 Microsoft Office 应用与文档的枢纽（Microsoft 365 应用的前身）",
+      "Description": "用于访问 Microsoft Office 应用和文档（Microsoft 365 应用的前身）",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -164,7 +164,7 @@
     {
       "FriendlyName": "Microsoft 纸牌合集",
       "AppId": "Microsoft.MicrosoftSolitaireCollection",
-      "Description": "纸牌游戏合集",
+      "Description": "多款纸牌游戏合集",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -172,7 +172,7 @@
     {
       "FriendlyName": "便笺",
       "AppId": "Microsoft.MicrosoftStickyNotes",
-      "Description": "数字便签应用（已停用，由 OneNote 取代）",
+      "Description": "用于快速创建和同步便笺",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -180,7 +180,7 @@
     {
       "FriendlyName": "混合现实门户",
       "AppId": "Microsoft.MixedReality.Portal",
-      "Description": "Windows Mixed Reality 头显门户",
+      "Description": "用于 Windows 混合现实头戴设备的门户应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -188,7 +188,7 @@
     {
       "FriendlyName": "网络速度测试",
       "AppId": "Microsoft.NetworkSpeedTest",
-      "Description": "网络连接速度测试工具",
+      "Description": "互联网连接速度测试工具",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -204,7 +204,7 @@
     {
       "FriendlyName": "演示文稿（Sway）",
       "AppId": "Microsoft.Office.Sway",
-      "Description": "演示与叙事应用",
+      "Description": "用于制作演示文稿和交互式叙事内容",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -212,7 +212,7 @@
     {
       "FriendlyName": "One Connect（移动连接）",
       "AppId": "Microsoft.OneConnect",
-      "Description": "移动运营商管理应用（已被 Mobile Plans 取代）",
+      "Description": "移动运营商管理应用（已由“移动套餐”取代）",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -220,7 +220,7 @@
     {
       "FriendlyName": "Print 3D（三维打印）",
       "AppId": "Microsoft.Print3D",
-      "Description": "3D 打印准备软件",
+      "Description": "用于准备三维打印任务的软件",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -228,7 +228,7 @@
     {
       "FriendlyName": "流程自动化（Power Automate）",
       "AppId": "Microsoft.PowerAutomateDesktop",
-      "Description": "桌面自动化工具（RPA）",
+      "Description": "桌面流程自动化工具（RPA）",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -244,7 +244,7 @@
     {
       "FriendlyName": "微软待办（Microsoft To Do）",
       "AppId": "Microsoft.Todos",
-      "Description": "待办事项与任务管理应用",
+      "Description": "待办事项和任务管理应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -260,7 +260,7 @@
     {
       "FriendlyName": "时钟",
       "AppId": "Microsoft.WindowsAlarms",
-      "Description": "时钟与闹钟应用",
+      "Description": "提供闹钟、计时器、秒表和专注时段功能",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -268,7 +268,7 @@
     {
       "FriendlyName": "反馈中心",
       "AppId": "Microsoft.WindowsFeedbackHub",
-      "Description": "向 Microsoft 提供 Windows 反馈的应用",
+      "Description": "用于向微软提交 Windows 使用反馈",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -276,7 +276,7 @@
     {
       "FriendlyName": "Windows 地图",
       "AppId": "Microsoft.WindowsMaps",
-      "Description": "地图与导航应用",
+      "Description": "地图与导航应用（已停止支持）",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -284,7 +284,7 @@
     {
       "FriendlyName": "录音机",
       "AppId": "Microsoft.WindowsSoundRecorder",
-      "Description": "基础音频录制应用",
+      "Description": "基础录音应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -308,7 +308,7 @@
     {
       "FriendlyName": "Microsoft 家庭安全",
       "AppId": "MicrosoftCorporationII.MicrosoftFamily",
-      "Description": "用于管理家庭账户与设置的 Family Safety 应用",
+      "Description": "用于管理家庭屏幕使用时间、内容筛选和活动报告",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -332,7 +332,7 @@
     {
       "FriendlyName": "Microsoft Teams（新版）",
       "AppId": "MSTeams",
-      "Description": "新版 Microsoft Teams 应用（工作/学校或个人版）",
+      "Description": "新版 Microsoft Teams 应用（工作、学校或个人账户）",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -348,7 +348,7 @@
     {
       "FriendlyName": "界面组件（Actipro Software）",
       "AppId": "ActiproSoftwareLLC",
-      "Description": "可能是 UI 控件或软件组件，常由 OEM 预装捆绑",
+      "Description": "可能为界面控件或软件组件，通常由设备厂商捆绑预装",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -356,7 +356,7 @@
     {
       "FriendlyName": "照片编辑（Adobe Photoshop Express）",
       "AppId": "AdobeSystemsIncorporated.AdobePhotoshopExpress",
-      "Description": "Adobe 出品的入门级照片编辑应用",
+      "Description": "Adobe 出品的基础照片编辑应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -364,7 +364,7 @@
     {
       "FriendlyName": "亚马逊购物",
       "AppId": "Amazon.com.Amazon",
-      "Description": "Amazon 购物应用",
+      "Description": "亚马逊购物应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -372,7 +372,7 @@
     {
       "FriendlyName": "亚马逊视频（Prime Video）",
       "AppId": "AmazonVideo.PrimeVideo",
-      "Description": "Amazon Prime Video 流媒体服务应用",
+      "Description": "亚马逊 Prime Video 流媒体视频应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -388,7 +388,7 @@
     {
       "FriendlyName": "素描绘图（Autodesk SketchBook）",
       "AppId": "AutodeskSketchBook",
-      "Description": "数字绘画与素描应用",
+      "Description": "数字绘画和素描应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -396,7 +396,7 @@
     {
       "FriendlyName": "凯撒老虎机（Caesars Slots）",
       "AppId": "CaesarsSlotsFreeCasino",
-      "Description": "赌场老虎机游戏",
+      "Description": "模拟赌场老虎机游戏",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -404,7 +404,7 @@
     {
       "FriendlyName": "烹饪发烧友（Cooking Fever）",
       "AppId": "COOKINGFEVER",
-      "Description": "餐厅模拟经营游戏",
+      "Description": "餐厅经营模拟游戏",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -412,7 +412,7 @@
     {
       "FriendlyName": "CyberLink 多媒体套件",
       "AppId": "CyberLinkMediaSuiteEssentials",
-      "Description": "多媒体软件套件（常由 OEM 预装）",
+      "Description": "多媒体软件套件，通常由设备厂商预装",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -420,7 +420,7 @@
     {
       "FriendlyName": "迪士尼梦幻王国（Disney Magic Kingdoms）",
       "AppId": "DisneyMagicKingdoms",
-      "Description": "Disney 主题公园建造游戏",
+      "Description": "迪士尼主题乐园建造游戏",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -428,7 +428,7 @@
     {
       "FriendlyName": "迪士尼视频（Disney+）",
       "AppId": "Disney.37853FC22B2CE",
-      "Description": "Disney+ 流媒体服务应用",
+      "Description": "Disney+ 流媒体视频应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -436,7 +436,7 @@
     {
       "FriendlyName": "PDF 批注（Drawboard PDF）",
       "AppId": "DrawboardPDF",
-      "Description": "PDF 查看与批注应用，通常针对触控笔输入优化",
+      "Description": "PDF 阅读和批注应用，侧重触控笔操作",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -452,7 +452,7 @@
     {
       "FriendlyName": "社交应用（Facebook）",
       "AppId": "FACEBOOK.FACEBOOK",
-      "Description": "Facebook 社交媒体应用",
+      "Description": "Facebook 社交应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -460,7 +460,7 @@
     {
       "FriendlyName": "农场乡村度假（FarmVille 2）",
       "AppId": "FarmVille2CountryEscape",
-      "Description": "农场模拟经营游戏",
+      "Description": "农场经营模拟游戏",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -468,7 +468,7 @@
     {
       "FriendlyName": "新闻阅读（Flipboard）",
       "AppId": "Flipboard",
-      "Description": "杂志风格的新闻与社交网络聚合器",
+      "Description": "以杂志形式呈现新闻和社交网络内容的聚合应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -476,7 +476,7 @@
     {
       "FriendlyName": "隐秘之城（Hidden City）",
       "AppId": "HiddenCity",
-      "Description": "隐藏物品解谜冒险游戏",
+      "Description": "寻找隐藏物品的解谜冒险游戏",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -484,7 +484,7 @@
     {
       "FriendlyName": "视频（Hulu）",
       "AppId": "HULULLC.HULUPLUS",
-      "Description": "Hulu 流媒体服务应用",
+      "Description": "Hulu 流媒体视频应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -492,7 +492,7 @@
     {
       "FriendlyName": "网络电台（iHeartRadio）",
       "AppId": "iHeartRadio",
-      "Description": "网络电台流媒体应用",
+      "Description": "网络广播应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -500,7 +500,7 @@
     {
       "FriendlyName": "图片社交（Instagram）",
       "AppId": "Facebook.Instagram",
-      "Description": "Instagram 社交媒体应用",
+      "Description": "Instagram 社交应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -532,7 +532,7 @@
     {
       "FriendlyName": "领英（LinkedIn）",
       "AppId": "LinkedInforWindows",
-      "Description": "LinkedIn 职业社交应用",
+      "Description": "领英职业社交应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -548,7 +548,7 @@
     {
       "FriendlyName": "奈飞（Netflix）",
       "AppId": "4DF9E0F8.Netflix",
-      "Description": "Netflix 流媒体服务应用",
+      "Description": "Netflix 流媒体视频应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -556,7 +556,7 @@
     {
       "FriendlyName": "纽约时报填字游戏",
       "AppId": "NYTCrossword",
-      "Description": "纽约时报填字游戏应用",
+      "Description": "《纽约时报》填字游戏应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -564,7 +564,7 @@
     {
       "FriendlyName": "日历（One Calendar）",
       "AppId": "OneCalendar",
-      "Description": "日历聚合应用",
+      "Description": "用于集中管理多个日历",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -572,7 +572,7 @@
     {
       "FriendlyName": "音乐（Pandora）",
       "AppId": "PandoraMediaInc",
-      "Description": "Pandora 音乐流媒体应用",
+      "Description": "Pandora 流媒体音乐应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -588,7 +588,7 @@
     {
       "FriendlyName": "照片创作（PicsArt）",
       "AppId": "PicsArt-PhotoStudio",
-      "Description": "照片编辑与创意应用",
+      "Description": "照片编辑和创意制作应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -596,7 +596,7 @@
     {
       "FriendlyName": "泼辣修图（Polarr Photo Editor）",
       "AppId": "PolarrPhotoEditorAcademicEdition",
-      "Description": "照片编辑应用（学术版）",
+      "Description": "照片编辑应用（教育版）",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -604,7 +604,7 @@
     {
       "FriendlyName": "皇家起义（Royal Revolt）",
       "AppId": "flaregamesGmbH.RoyalRevolt",
-      "Description": "塔防/策略游戏",
+      "Description": "塔防和策略游戏",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -620,7 +620,7 @@
     {
       "FriendlyName": "电视直播（Sling TV）",
       "AppId": "SlingTV",
-      "Description": "直播电视流媒体服务应用",
+      "Description": "在线电视直播应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -628,7 +628,7 @@
     {
       "FriendlyName": "音乐（Spotify）",
       "AppId": "SpotifyAB.SpotifyMusic",
-      "Description": "Spotify 音乐流媒体应用",
+      "Description": "Spotify 流媒体音乐应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -644,7 +644,7 @@
     {
       "FriendlyName": "网络电台（TuneIn Radio）",
       "AppId": "TuneInRadio",
-      "Description": "网络电台流媒体应用",
+      "Description": "网络广播应用",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -652,7 +652,7 @@
     {
       "FriendlyName": "压缩工具（WinZip）",
       "AppId": "WinZipUniversal",
-      "Description": "文件压缩与解压工具（通用 Windows 平台版本）",
+      "Description": "文件压缩和解压工具（通用 Windows 平台版本）",
       "SelectedByDefault": true,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -660,7 +660,7 @@
     {
       "FriendlyName": "必应搜索",
       "AppId": "Microsoft.BingSearch",
-      "Description": "Microsoft Bing 网页搜索（集成到 Windows 搜索中）",
+      "Description": "微软必应网络搜索（集成在 Windows 搜索中）",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -671,7 +671,7 @@
         "Microsoft.Edge",
         "XPFFTQ037JWMHS"
       ],
-      "Description": "Windows 默认浏览器，警告：移除此应用也会移除 Windows 沙盒中唯一的浏览器，并可能影响其他应用",
+      "Description": "Windows 默认浏览器。警告：移除此应用也会移除 Windows 沙盒中唯一的浏览器，并且可能影响其他应用。",
       "SelectedByDefault": false,
       "Recommendation": "unsafe",
       "RemovalMethod": "WinGet"
@@ -679,7 +679,7 @@
     {
       "FriendlyName": "Xbox 应用",
       "AppId": "Microsoft.GamingApp",
-      "Description": "现代 Xbox Gaming 应用，安装部分 PC 游戏时需要",
+      "Description": "适用于 Windows 的 Xbox 游戏应用，安装部分电脑游戏时需要",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -687,7 +687,7 @@
     {
       "FriendlyName": "获取帮助",
       "AppId": "Microsoft.GetHelp",
-      "Description": "部分 Windows 11 疑难解答和支持交互需要此应用",
+      "Description": "部分 Windows 11 疑难解答工具和支持服务需要此应用",
       "SelectedByDefault": false,
       "Recommendation": "unsafe",
       "RemovalMethod": "Appx"
@@ -695,7 +695,7 @@
     {
       "FriendlyName": "Microsoft 365 配套应用",
       "AppId": "Microsoft.M365Companions",
-      "Description": "Microsoft 365（商业版）日历、文件和联系人迷你应用，如果 Microsoft 365 管理员启用，这些应用可能会被重新安装",
+      "Description": "Microsoft 365 商业版的日历、文件和人员小应用；如果管理员启用这些应用，它们可能会被重新安装",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -703,7 +703,7 @@
     {
       "FriendlyName": "画图 3D",
       "AppId": "Microsoft.MSPaint",
-      "Description": "Paint 3D（带 3D 功能的现代绘图应用）",
+      "Description": "3D 绘图应用（已停止支持）",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -711,7 +711,7 @@
     {
       "FriendlyName": "OneDrive 云盘",
       "AppId": "Microsoft.OneDrive",
-      "Description": "OneDrive 消费者版云存储客户端",
+      "Description": "OneDrive 个人版云存储客户端",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "WinGet"
@@ -719,7 +719,7 @@
     {
       "FriendlyName": "Outlook（Windows 版）",
       "AppId": "Microsoft.OutlookForWindows",
-      "Description": "适用于 Windows 的新版 Outlook 邮件客户端",
+      "Description": "新版 Outlook Windows 邮件客户端",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -727,7 +727,7 @@
     {
       "FriendlyName": "画图",
       "AppId": "Microsoft.Paint",
-      "Description": "经典 Paint（传统 2D 绘图应用）",
+      "Description": "经典画图应用，用于二维绘图",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -735,7 +735,7 @@
     {
       "FriendlyName": "人脉",
       "AppId": "Microsoft.People",
-      "Description": "Mail & Calendar 所需并附带（已停用）",
+      "Description": "“邮件和日历”的配套组件，其运行需要此应用（已停止维护）",
       "SelectedByDefault": false,
       "Recommendation": "safe",
       "RemovalMethod": "Appx"
@@ -751,7 +751,7 @@
     {
       "FriendlyName": "截图工具",
       "AppId": "Microsoft.ScreenSketch",
-      "Description": "截图工具（截图与批注工具）",
+      "Description": "用于截取、批注、保存和分享屏幕截图",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -759,7 +759,7 @@
     {
       "FriendlyName": "小组件体验",
       "AppId": "Microsoft.StartExperiencesApp",
-      "Description": "此应用为 Windows 小组件「我的摘要」提供支持",
+      "Description": "为 Windows 小组件的“我的资讯”提供支持",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -775,7 +775,7 @@
     {
       "FriendlyName": "照片",
       "AppId": "Microsoft.Windows.Photos",
-      "Description": "默认的照片查看与基础编辑应用",
+      "Description": "默认照片查看和基础编辑应用",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -791,7 +791,7 @@
     {
       "FriendlyName": "相机",
       "AppId": "Microsoft.WindowsCamera",
-      "Description": "使用内置或外接摄像头的相机应用",
+      "Description": "用于内置摄像头或外接摄像头的相机应用",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -807,7 +807,7 @@
     {
       "FriendlyName": "记事本",
       "AppId": "Microsoft.WindowsNotepad",
-      "Description": "记事本文本编辑器应用",
+      "Description": "记事本文本编辑器",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -815,7 +815,7 @@
     {
       "FriendlyName": "微软商店（Microsoft Store）",
       "AppId": "Microsoft.WindowsStore",
-      "Description": "Microsoft Store，警告：移除此应用后难以重新安装！",
+      "Description": "微软应用商店。警告：移除此应用后很难重新安装！",
       "SelectedByDefault": false,
       "Recommendation": "unsafe",
       "RemovalMethod": "Appx"
@@ -823,7 +823,7 @@
     {
       "FriendlyName": "Windows 终端",
       "AppId": "Microsoft.WindowsTerminal",
-      "Description": "Windows 11 默认终端应用（命令提示符、PowerShell、WSL），警告：如果您从 Windows Terminal 启动 Win11Debloat，请勿移除此应用，否则会导致脚本失败。",
+      "Description": "Windows 11 默认终端应用，支持命令提示符、PowerShell 和 WSL。警告：如果从 Windows 终端启动了 Win11Debloat，请勿移除此应用，否则脚本将运行失败。",
       "SelectedByDefault": false,
       "Recommendation": "unsafe",
       "RemovalMethod": "Appx"
@@ -831,7 +831,7 @@
     {
       "FriendlyName": "Xbox TCUI 框架",
       "AppId": "Microsoft.Xbox.TCUI",
-      "Description": "UI 框架，似乎为 Microsoft Store、照片和某些游戏所需",
+      "Description": "界面框架，Microsoft Store、“照片”和某些游戏可能需要此组件",
       "SelectedByDefault": false,
       "Recommendation": "unsafe",
       "RemovalMethod": "Appx"
@@ -855,7 +855,7 @@
     {
       "FriendlyName": "Xbox 身份验证提供程序",
       "AppId": "Microsoft.XboxIdentityProvider",
-      "Description": "Xbox 登录框架，部分游戏和 Xbox 服务所需",
+      "Description": "Xbox 登录框架，部分游戏和 Xbox 服务需要此组件",
       "SelectedByDefault": false,
       "Recommendation": "unsafe",
       "RemovalMethod": "Appx"
@@ -863,7 +863,7 @@
     {
       "FriendlyName": "Xbox 语音转文字",
       "AppId": "Microsoft.XboxSpeechToTextOverlay",
-      "Description": "部分游戏需要的无障碍功能，警告：移除此应用后难以重新安装！",
+      "Description": "部分游戏所需的辅助功能。警告：此应用很难重新安装！",
       "SelectedByDefault": false,
       "Recommendation": "unsafe",
       "RemovalMethod": "Appx"
@@ -871,7 +871,7 @@
     {
       "FriendlyName": "手机连接",
       "AppId": "Microsoft.YourPhone",
-      "Description": "手机连接（将 Android/iOS 手机连接到 PC）",
+      "Description": "将 Android 或 iOS 手机连接到电脑",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -879,7 +879,7 @@
     {
       "FriendlyName": "媒体播放器",
       "AppId": "Microsoft.ZuneMusic",
-      "Description": "现代 Media Player（取代 Groove Music，播放本地音频/视频）",
+      "Description": "新版媒体播放器，已取代 Groove 音乐，可播放本地音频和视频",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -887,7 +887,7 @@
     {
       "FriendlyName": "跨设备体验",
       "AppId": "MicrosoftWindows.CrossDevice",
-      "Description": "文件资源管理器、相机等中的手机集成功能（Phone Link 功能的一部分）",
+      "Description": "在文件资源管理器、“相机”等应用中提供手机集成功能（“手机连接”功能的一部分）",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -895,7 +895,7 @@
     {
       "FriendlyName": "Windows Web 体验包",
       "AppId": "MicrosoftWindows.Client.WebExperience",
-      "Description": "通过 Microsoft Store 帮助交付和更新某些功能，如小组件",
+      "Description": "通过 Microsoft Store 提供和更新小组件等部分功能",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -903,7 +903,7 @@
     {
       "FriendlyName": "小组件平台运行时",
       "AppId": "Microsoft.WidgetsPlatformRuntime",
-      "Description": "Windows 小组件运行所需的运行时",
+      "Description": "Windows 小组件正常运行所需的组件",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -911,7 +911,7 @@
     {
       "FriendlyName": "LG 显示器应用",
       "AppId": "LGElectronics.LGMonitorApp",
-      "Description": "用于控制 LG 显示器的 LG OEM 软件，连接 LG 显示器时 Windows Update 可能会静默重新安装此应用",
+      "Description": "LG 提供的显示器控制软件；连接 LG 显示器时，Windows 更新可能会自动重新安装此应用",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -919,7 +919,7 @@
     {
       "FriendlyName": "HP AI体验中心",
       "AppId": "AD2F1837.HPAIExperienceCenter",
-      "Description": "HP OEM 软件，提供 AI 增强功能与支持",
+      "Description": "惠普预装软件，提供AI增强功能和支持服务",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -927,7 +927,7 @@
     {
       "FriendlyName": "惠普音乐（HP Connected Music）",
       "AppId": "AD2F1837.HPConnectedMusic",
-      "Description": "HP OEM 音乐软件（可能已停用）",
+      "Description": "惠普预装音乐软件（可能已停止维护）",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -935,7 +935,7 @@
     {
       "FriendlyName": "惠普照片（HP Connected Photo）",
       "AppId": "AD2F1837.HPConnectedPhotopoweredbySnapfish",
-      "Description": "HP OEM 照片软件，与 Snapfish 集成（可能已停用）",
+      "Description": "惠普预装照片软件，与 Snapfish 集成（可能已停止维护）",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -943,7 +943,7 @@
     {
       "FriendlyName": "HP 桌面支持工具",
       "AppId": "AD2F1837.HPDesktopSupportUtilities",
-      "Description": "提供桌面支持工具的 HP OEM 软件",
+      "Description": "惠普预装的桌面支持工具",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -951,7 +951,7 @@
     {
       "FriendlyName": "惠普设备清洁(HP Easy Clean)",
       "AppId": "AD2F1837.HPEasyClean",
-      "Description": "用于系统清理或优化的 HP OEM 软件",
+      "Description": "暂时禁用输入设备，方便清洁设备",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -959,7 +959,7 @@
     {
       "FriendlyName": "HP 文件查看器",
       "AppId": "AD2F1837.HPFileViewer",
-      "Description": "用于查看特定文件类型的 HP OEM 软件",
+      "Description": "惠普预装软件，用于查看特定类型的文件",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -967,7 +967,7 @@
     {
       "FriendlyName": "惠普入门（HP JumpStarts）",
       "AppId": "AD2F1837.HPJumpStarts",
-      "Description": "用于教程、应用发现或快速访问 HP 功能的 HP OEM 软件",
+      "Description": "惠普预装软件，提供教程、应用推荐或惠普功能快捷入口",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -975,7 +975,7 @@
     {
       "FriendlyName": "HP 电脑硬件诊断",
       "AppId": "AD2F1837.HPPCHardwareDiagnosticsWindows",
-      "Description": "用于 PC 硬件诊断的 HP OEM 软件",
+      "Description": "惠普预装的电脑硬件诊断工具",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -983,7 +983,7 @@
     {
       "FriendlyName": "HP 电源管理器",
       "AppId": "AD2F1837.HPPowerManager",
-      "Description": "用于管理电源设置和电池的 HP OEM 软件",
+      "Description": "惠普预装软件，用于管理电源设置和电池",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -991,7 +991,7 @@
     {
       "FriendlyName": "HP 打印机控制",
       "AppId": "AD2F1837.HPPrinterControl",
-      "Description": "用于管理 HP 打印机的 HP OEM 软件",
+      "Description": "惠普预装的打印机管理软件",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -999,7 +999,7 @@
     {
       "FriendlyName": "HP 隐私设置",
       "AppId": "AD2F1837.HPPrivacySettings",
-      "Description": "用于管理隐私设置的 HP OEM 软件",
+      "Description": "惠普预装的隐私设置管理软件",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -1007,7 +1007,7 @@
     {
       "FriendlyName": "惠普快传（HP QuickDrop）",
       "AppId": "AD2F1837.HPQuickDrop",
-      "Description": "用于设备间快速传输文件的 HP OEM 软件",
+      "Description": "HP 设备间快速传输文件的预装软件（已停止支持）",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -1015,7 +1015,7 @@
     {
       "FriendlyName": "惠普触控（HP QuickTouch）",
       "AppId": "AD2F1837.HPQuickTouch",
-      "Description": "HP OEM 软件，可能用于触控专用快捷方式或控制",
+      "Description": "惠普预装软件，可能用于触控快捷操作或控制",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -1023,7 +1023,7 @@
     {
       "FriendlyName": "HP 产品注册",
       "AppId": "AD2F1837.HPRegistration",
-      "Description": "用于产品注册的 HP OEM 软件",
+      "Description": "惠普预装的产品注册软件",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -1031,7 +1031,7 @@
     {
       "FriendlyName": "HP 支持助手",
       "AppId": "AD2F1837.HPSupportAssistant",
-      "Description": "用于支持、更新和故障排除的 HP OEM 软件",
+      "Description": "惠普预装软件，提供支持、更新和故障排查功能",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -1039,7 +1039,7 @@
     {
       "FriendlyName": "惠普安全防护（HP Sure Shield AI）",
       "AppId": "AD2F1837.HPSureShieldAI",
-      "Description": "HP OEM 安全软件，可能提供基于 AI 的威胁防护",
+      "Description": "惠普预装安全软件，可能用于基于AI的威胁防护",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -1047,7 +1047,7 @@
     {
       "FriendlyName": "HP 系统信息",
       "AppId": "AD2F1837.HPSystemInformation",
-      "Description": "用于显示系统信息的 HP OEM 软件",
+      "Description": "惠普预装的系统信息查看软件",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -1055,7 +1055,7 @@
     {
       "FriendlyName": "HP 欢迎",
       "AppId": "AD2F1837.HPWelcome",
-      "Description": "提供欢迎体验或初始设置帮助的 HP OEM 软件",
+      "Description": "惠普预装软件，提供欢迎页面或初始设置帮助",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -1063,7 +1063,7 @@
     {
       "FriendlyName": "惠普健康办公（HP WorkWell）",
       "AppId": "AD2F1837.HPWorkWell",
-      "Description": "关注健康的 HP OEM 软件，可能包含休息提醒或人体工学建议",
+      "Description": "惠普预装的健康办公软件，可能提供休息提醒或人体工学建议",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -1071,7 +1071,7 @@
     {
       "FriendlyName": "惠普设备中心（myHP）",
       "AppId": "AD2F1837.myHP",
-      "Description": "用于设备信息、支持与服务的 HP OEM 中心枢纽应用",
+      "Description": "惠普预装的设备信息、支持和服务入口",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -1079,7 +1079,7 @@
     {
       "FriendlyName": "Lenovo Vantage",
       "AppId": "E046963F.LenovoCompanion",
-      "Description": "用于设备设置、更新与支持的 Lenovo OEM 枢纽应用",
+      "Description": "联想预装软件，用于管理设备设置、更新和支持服务",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -1095,7 +1095,7 @@
     {
       "FriendlyName": "戴尔支持助手（Dell SupportAssist）",
       "AppId": "DellInc.DellSupportAssistforPCs",
-      "Description": "Dell OEM 支持、诊断与更新工具",
+      "Description": "戴尔预装的支持、诊断和更新工具",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -1103,7 +1103,7 @@
     {
       "FriendlyName": "戴尔数字交付（Dell Digital Delivery）",
       "AppId": "DellInc.DellDigitalDelivery",
-      "Description": "用于交付预购软件的 Dell OEM 软件",
+      "Description": "戴尔预装软件，用于交付已购买的软件",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -1111,7 +1111,7 @@
     {
       "FriendlyName": "戴尔移动连接（Dell Mobile Connect）",
       "AppId": "DellInc.DellMobileConnect",
-      "Description": "用于将 Android/iOS 手机连接到 PC 的 Dell OEM 应用（已被 Phone Link 取代）",
+      "Description": "戴尔预装软件，用于将 Android 或 iOS 手机连接到电脑（已由“手机连接”取代）",
       "SelectedByDefault": false,
       "Recommendation": "optional",
       "RemovalMethod": "Appx"
@@ -1127,7 +1127,7 @@
       ]
     },
     {
-      "Name": "OEM 软件（戴尔、惠普、联想、LG）",
+      "Name": "设备厂商预装软件（戴尔、惠普、联想、LG）",
       "AppIds": [
         "AD2F1837.HPAIExperienceCenter",
         "AD2F1837.HPConnectedMusic",

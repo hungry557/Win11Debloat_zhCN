@@ -27,10 +27,10 @@
     "Label": "游戏"
   },
   "MultiTasking": {
-    "Label": "多任务"
+    "Label": "多任务处理"
   },
   "OptionalWindowsFeatures": {
-    "Label": "可选 Windows 功能"
+    "Label": "Windows 可选功能"
   },
   "Other": {
     "Label": "其他"

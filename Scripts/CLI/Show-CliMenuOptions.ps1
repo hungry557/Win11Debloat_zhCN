@@ -6,7 +6,7 @@ function Show-CliMenuOptions {
         Write-CliHeader '菜单'
 
         Write-Host "(1) 默认模式：快速应用推荐更改"
-        Write-Host "(2) 应用移除模式：选择并移除应用，不进行其他更改"
+        Write-Host "(2) 卸载应用模式：选择并卸载应用，不进行其他更改"
 
         # Only show this option if SavedSettings file exists
         if (Test-Path $script:SavedSettingsFilePath) {

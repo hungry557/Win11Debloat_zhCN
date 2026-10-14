@@ -111,7 +111,7 @@ param (
 # the run continues and silently fails to remove any apps while still reporting success. See issue #675.
 if ($PSVersionTable.PSEdition -eq 'Core') {
     Write-Host "Win11Debloat 需要 Windows PowerShell 5.1，但当前运行在 PowerShell $($PSVersionTable.PSVersion)（pwsh / Core 版本）下。" -ForegroundColor Red
-    Write-Host "应用移除和系统还原点依赖的模块在 PowerShell 7 中不可用，因此无法在此环境中正确完成运行。" -ForegroundColor Red
+    Write-Host "卸载应用和系统还原点依赖的模块在 PowerShell 7 中不可用，因此无法在此环境中正确完成运行。" -ForegroundColor Red
     Write-Host "请改用 Windows PowerShell（powershell.exe）重新运行此脚本。" -ForegroundColor Yellow
     exit 1
 }
@@ -344,7 +344,7 @@ catch {
 
 # Show WinGet warning that requires user confirmation, Suppress confirmation if Silent parameter was passed
 if (-not $script:WingetInstalled -and -not $Silent) {
-    Write-Warning "WinGet 未安装或版本过旧，这可能会阻止 Win11Debloat 移除某些应用"
+    Write-Warning "WinGet 未安装或版本过旧，这可能会阻止 Win11Debloat 卸载某些应用"
     Write-Output ""
     Write-Output "按任意键继续..."
     $null = [System.Console]::ReadKey()

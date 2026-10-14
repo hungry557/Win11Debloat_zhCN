@@ -39,7 +39,7 @@ Describe 'Remove-SelectedApps' {
         Remove-SelectedApps -appsList @('One.App', 'Two.App')
         Should -Invoke Remove-WinGetApp -Times 0 -Exactly
         Should -Invoke Remove-AppxApp -Times 0 -Exactly
-        Should -Invoke Write-Host -Times 2 -Exactly -ParameterFilter { $Object -like '*WhatIf*移除应用包*' }
+        Should -Invoke Write-Host -Times 2 -Exactly -ParameterFilter { $Object -like '*WhatIf*卸载应用包*' }
     }
 
     It 'dispatches each app to its configured backend and target scope' {
@@ -375,7 +375,7 @@ Describe 'Remove-AppxApp' {
 
         Remove-AppxApp -app 'One.App' -targetUser 'CurrentUser' | Should -BeFalse
         Should -Invoke Write-Error -Times 1 -Exactly -ParameterFilter {
-            $Message -like '*无法通过 Appx 移除 One.App*access denied*'
+            $Message -like '*无法通过 Appx 卸载 One.App*access denied*'
         }
     }
 

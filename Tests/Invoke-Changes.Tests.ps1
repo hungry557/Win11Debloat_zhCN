@@ -525,7 +525,7 @@ Describe 'Invoke-AllChanges' {
 
         Invoke-AllChanges
 
-        Should -Invoke Write-Warning -Times 1 -Exactly -ParameterFilter { $Message -match '2 个应用移除失败' }
+        Should -Invoke Write-Warning -Times 1 -Exactly -ParameterFilter { $Message -match '2 个应用卸载失败' }
     }
 
     It 'warns when app removals could not be verified' {

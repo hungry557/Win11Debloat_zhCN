@@ -10,7 +10,7 @@ function Show-CliDefaultModeOptions {
         $RemoveAppsInput = Show-CliDefaultModeAppRemovalOptions
 
         if ($RemoveAppsInput -eq '2' -and ($script:SelectedApps.contains('Microsoft.XboxGameOverlay') -or $script:SelectedApps.contains('Microsoft.XboxGamingOverlay')) -and 
-          $( Read-Host -Prompt "是否禁用游戏栏集成和游戏/屏幕录制？这也会阻止 ms-gamingoverlay 和 ms-gamebar 弹窗 (y/n)" ) -eq 'y') {
+          $( Read-Host -Prompt "是否禁用 Game Bar 集成和游戏/屏幕录制？这也会阻止 ms-gamingoverlay 和 ms-gamebar 弹窗 (y/n)" ) -eq 'y') {
             $DisableGameBarIntegrationInput = $true;
         }
     }

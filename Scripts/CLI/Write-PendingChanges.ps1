@@ -35,12 +35,12 @@ function Write-PendingChanges {
                 $appsList = Generate-AppsList
 
                 if ($appsList.Count -eq 0) {
-                    Write-Host "未选择任何有效的应用进行移除" -ForegroundColor Yellow
+                    Write-Host "未选择任何有效的应用进行卸载" -ForegroundColor Yellow
                     Write-Output ""
                     continue
                 }
 
-                Write-Output "- 移除 $($appsList.Count) 个应用："
+                Write-Output "- 卸载 $($appsList.Count) 个应用："
                 Write-Host $appsList -ForegroundColor DarkGray
                 continue
             }

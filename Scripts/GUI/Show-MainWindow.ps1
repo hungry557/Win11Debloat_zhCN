@@ -680,7 +680,7 @@ function Show-MainWindow {
 
             $scopeTarget = Get-AppRemovalScopeTarget -AppRemovalScopeCombo $appRemovalScopeCombo -OtherUsernameTextBox $otherUsernameTextBox
             if ([string]::IsNullOrWhiteSpace($scopeTarget)) {
-                Write-Warning '所选移除范围无效，已取消应用移除。'
+                Write-Warning '所选卸载范围无效，已取消应用卸载。'
                 return
             }
 

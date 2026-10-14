@@ -52,11 +52,11 @@ function Invoke-FeatureApply {
             $appsList = Generate-AppsList
 
             if ($appsList.Count -eq 0) {
-                Write-Host "未选择任何有效的应用进行移除" -ForegroundColor Yellow
+                Write-Host "未选择任何有效的应用进行卸载" -ForegroundColor Yellow
                 return $true
             }
 
-            Write-Host "已选择 $($appsList.Count) 个应用进行移除"
+            Write-Host "已选择 $($appsList.Count) 个应用进行卸载"
             return (Remove-SelectedApps $appsList)
         }
         'RemoveGamingApps' {
@@ -462,7 +462,7 @@ function Invoke-AllChanges {
     # ================================================================
     if ($script:AppRemovalFailures -gt 0) {
         Write-Host ""
-        Write-Warning "$($script:AppRemovalFailures) 个应用移除失败。详情请查看上方输出。"
+        Write-Warning "$($script:AppRemovalFailures) 个应用卸载失败。详情请查看上方输出。"
     }
 
     if ($script:FeatureFailures -gt 0) {
