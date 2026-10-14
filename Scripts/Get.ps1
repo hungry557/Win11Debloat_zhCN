@@ -6,9 +6,12 @@
     [switch]$Silent,
     [switch]$Sysprep,
     [string]$LogPath,
+    [string]$Language,
     [string]$User,
-    [switch]$NoRestartExplorer,
+    [Alias('NoRestartExplorer')]
+    [switch]$SkipExplorerRestart,
     [switch]$CreateRestorePoint,
+    [switch]$SkipRegistryBackup,
     [switch]$RunDefaults,
     [switch]$RunDefaultsLite,
     [switch]$RunSavedSettings,
@@ -24,7 +27,6 @@
     [switch]$EnableWindowsSandbox,
     [switch]$EnableWindowsSubsystemForLinux,
     [switch]$DisableTelemetry,
-    [switch]$DisableSearchHistory,
     [switch]$DisableFastStartup,
     [switch]$DisableBitlockerAutoEncryption,
     [switch]$DisableModernStandbyNetworking,
@@ -37,6 +39,8 @@
     [switch]$DisableBing,
     [switch]$DisableStoreSearchSuggestions,
     [switch]$DisableDesktopSpotlight,
+    [switch]$HideDesktopSpotlightIcon,
+    [switch]$EnableDesktopSpotlight,
     [switch]$DisableLockscreenTips,
     [switch]$DisableSuggestions,
     [switch]$DisableLocationServices,
@@ -67,7 +71,7 @@
     [switch]$DisablePaintAI,
     [switch]$DisableNotepadAI,
     [switch]$DisableEdgeAI,
-    [switch]$DisableSearchHighlights,
+	[switch]$DisableChromeAI,
     [switch]$DisableWidgets,
     [switch]$HideChat,
     [switch]$EnableEndTask,
@@ -103,13 +107,12 @@
     [switch]$HideDriveLetters
 )
 
-# Show error if current powershell environment does not have LanguageMode set to FullLanguage 
+# Check if current PowerShell environment is limited by security policies
 if ($ExecutionContext.SessionState.LanguageMode -ne "FullLanguage") {
-   Write-Host "错误：Win11Debloat 无法在此系统上运行。PowerShell 执行受到安全策略限制" -ForegroundColor Red
-   Write-Output ""
-   Write-Output "按 Enter 退出..."
-   Read-Host | Out-Null
-   Exit
+    Write-Error "Win11Debloat 无法在此系统上运行，PowerShell 执行受到安全策略限制"
+    Write-Output "按任意键退出..."
+    $null = [System.Console]::ReadKey()
+    Exit 1
 }
 
 Clear-Host
@@ -133,11 +136,12 @@ try {
     Invoke-RestMethod $sourceUri -OutFile $tempArchivePath
 }
 catch {
-    Write-Host "错误：无法从 GitHub 获取所需文件。请检查网络连接后重试。" -ForegroundColor Red
+    Write-Host "无法从 GitHub 获取所需文件。请检查网络连接后重试。" -ForegroundColor Red
+    Write-Error -ErrorRecord $_
     Write-Output ""
     Write-Output "按 Enter 退出..."
     Read-Host | Out-Null
-    Exit
+    Exit 1
 }
 
 # Remove old script folder if it exists, but keep configs, logs and backups
@@ -192,20 +196,37 @@ if (Test-Path "$backupDir") {
     Remove-Item "$backupDir" -Recurse -Force
 }
 
-# Make list of arguments to pass on to the script (exclude the -Dev switch, which only affects this launcher)
-$arguments = $($PSBoundParameters.GetEnumerator() | Where-Object { $_.Key -ne 'Dev' } | ForEach-Object {
-    if ($_.Value -eq $true) {
-        "-$($_.Key)"
-    } 
-    else {
-         "-$($_.Key) ""$($_.Value)"""
+# Quote a value so it survives CommandLineToArgvW parsing in the child process: double any backslash run that
+# precedes a quote or the closing quote, and escape embedded quotes, before wrapping the value in quotes.
+function Format-LauncherArg([string]$Value) {
+    $escaped = $Value -replace '(\\*)"', '$1$1\"'
+    $escaped = $escaped -replace '(\\+)$', '$1$1'
+    return '"' + $escaped + '"'
+}
+
+# Build the list of arguments to pass on to the script (excludes the -Dev switch, which only affects this launcher).
+# Takes the bound parameters as input so it can be tested without running the launcher.
+function Get-LauncherArgumentList([System.Collections.IDictionary]$BoundParameters) {
+    foreach ($entry in $BoundParameters.GetEnumerator()) {
+        if ($entry.Key -eq 'Dev') { continue }
+
+        if ($entry.Value -is [System.Management.Automation.SwitchParameter]) {
+            if ($entry.Value.IsPresent) {
+                "-$($entry.Key)"
+            }
+        }
+        else {
+            "-$($entry.Key) $(Format-LauncherArg ([string]$entry.Value))"
+        }
     }
-})
+}
+
+$arguments = @(Get-LauncherArgumentList $PSBoundParameters)
 
 Write-Output ""
 Write-Output "> 正在启动 Win11Debloat..."
 
-# Minimize the powershell window when no parameters are provided
+# Minimize the PowerShell window when no parameters are provided
 if ($arguments.Count -eq 0) {
     $windowStyle = "Minimized"
 }
@@ -213,7 +234,7 @@ else {
     $windowStyle = "Normal"
 }
 
-# Remove Powershell 7 modules from path to prevent module loading issues in the script
+# Remove PowerShell 7 modules from path to prevent module loading issues in the script
 if ($PSVersionTable.PSVersion.Major -ge 7) {
     $NewPSModulePath = $env:PSModulePath -split ';' | Where-Object -FilterScript { $_ -like '*WindowsPowerShell*' }
     $env:PSModulePath = $NewPSModulePath -join ';'
@@ -221,11 +242,20 @@ if ($PSVersionTable.PSVersion.Major -ge 7) {
 
 # Run Win11Debloat script with the provided arguments
 $debloatScriptPath = Join-Path $tempWorkPath 'Win11Debloat.ps1'
-$debloatProcess = Start-Process powershell.exe -WindowStyle $windowStyle -PassThru -ArgumentList "-executionpolicy bypass -File `"$debloatScriptPath`" $arguments" -Verb RunAs
+$exitCode = 0
+$debloatProcess = $null
+try {
+    $debloatProcess = Start-Process powershell.exe -WindowStyle $windowStyle -PassThru -ArgumentList "-executionpolicy bypass -File `"$debloatScriptPath`" $arguments" -Verb RunAs -ErrorAction Stop
+}
+catch {
+    $exitCode = 1
+    Write-Error "启动 Win11Debloat 失败：$_"
+}
 
 # Wait for the process to finish before continuing
 if ($null -ne $debloatProcess) {
     $debloatProcess.WaitForExit()
+    $exitCode = $debloatProcess.ExitCode
 }
 
 # Remove all remaining script files, except for configs, logs and backups
@@ -238,3 +268,4 @@ if (Test-Path $tempWorkPath) {
 }
 
 Write-Output ""
+Exit $exitCode

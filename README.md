@@ -57,7 +57,7 @@ Win11Debloat 是一款轻量、易用的 PowerShell 脚本，可让您快速精�
   3. 通过输入以下命令临时启用 PowerShell 执行：
 
   ```PowerShell
-  Set-ExecutionPolicy Unrestricted -Scope Process -Force
+  Set-ExecutionPolicy Bypass -Scope Process -Force
   ```
 
   4. 在 PowerShell 中，进入文件解压后的目录。例如：`cd c:\Win11Debloat`
@@ -94,7 +94,7 @@ Win11Debloat 是一款轻量、易用的 PowerShell 脚本，可让您快速精�
 
 - 禁用并移除 Microsoft Copilot、Windows Recall 和 Click to Do。
 - 防止 AI 服务（WSAIFabricSvc）自动启动。
-- 禁用 Edge、画图和记事本中的 AI 功能。
+- 禁用 Edge、Chrome、画图和记事本中的 AI 功能。
 
 #### 系统
 
@@ -118,6 +118,7 @@ Win11Debloat 是一款轻量、易用的 PowerShell 脚本，可让您快速精�
 
 - 为系统和应用启用深色模式。
 - 禁用透明效果、动画和视觉效果。
+- 隐藏桌面聚焦的「了解此图片」快捷方式，或完全禁用 Windows 聚焦桌面背景。
 
 #### 开始菜单和搜索
 
